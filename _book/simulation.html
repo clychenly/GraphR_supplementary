@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>B Simulation studies | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity</title>
+  <meta name="description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="B Simulation studies | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="B Simulation studies | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity" />
+  
+  <meta name="twitter:description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  
+
+<meta name="author" content="Liying Chen^{1,5}, Satwik Acharyya^{1,5}, Chunyu Luo^{2,3}, Yang Ni^4 and Veerabhadran Baladandayuthapani^{1,6}" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="method.html"/>
+<link rel="next" href="PAM50.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Probabilistic Graphical Model under Heterogeneity</a></li>
+
+<li class="divider"></li>
+<li class="appendix"><span><b>Supplementary Materials</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="A" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>A</b> Methodology</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="method.html"><a href="method.html#GraphRmodel"><i class="fa fa-check"></i><b>A.1</b> Model and priors</a></li>
+<li class="chapter" data-level="A.2" data-path="method.html"><a href="method.html#MFVB"><i class="fa fa-check"></i><b>A.2</b> Mean field variational Bayes</a></li>
+<li class="chapter" data-level="A.3" data-path="method.html"><a href="method.html#derivation"><i class="fa fa-check"></i><b>A.3</b> Update equations</a></li>
+<li class="chapter" data-level="A.4" data-path="method.html"><a href="method.html#GraphElbo"><i class="fa fa-check"></i><b>A.4</b> Evidence lower bound (ELBO)</a></li>
+<li class="chapter" data-level="A.5" data-path="method.html"><a href="method.html#algorithm"><i class="fa fa-check"></i><b>A.5</b> Algorithm</a></li>
+<li class="chapter" data-level="A.6" data-path="method.html"><a href="method.html#GraphRcompare"><i class="fa fa-check"></i><b>A.6</b> Overview of competing methods</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>B</b> Simulation studies</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="simulation.html"><a href="simulation.html#undir"><i class="fa fa-check"></i><b>B.1</b> Undirected graphical models</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="simulation.html"><a href="simulation.html#simgroupspec"><i class="fa fa-check"></i><b>B.1.1</b> Multi-category Graphs</a></li>
+<li class="chapter" data-level="B.1.2" data-path="simulation.html"><a href="simulation.html#simcont"><i class="fa fa-check"></i><b>B.1.2</b> Continuously Varying Graphs</a></li>
+<li class="chapter" data-level="B.1.3" data-path="simulation.html"><a href="simulation.html#simhomo"><i class="fa fa-check"></i><b>B.1.3</b> Homogeneous Graphs</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="simulation.html"><a href="simulation.html#dir"><i class="fa fa-check"></i><b>B.2</b> Directed acyclic graphs (DAGs)</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="simulation.html"><a href="simulation.html#moderate"><i class="fa fa-check"></i><b>B.2.1</b> Moderate dimensions</a></li>
+<li class="chapter" data-level="B.2.2" data-path="simulation.html"><a href="simulation.html#largep"><i class="fa fa-check"></i><b>B.2.2</b> Large number of nodes</a></li>
+<li class="chapter" data-level="B.2.3" data-path="simulation.html"><a href="simulation.html#largeq"><i class="fa fa-check"></i><b>B.2.3</b> Large number of intrinsic factors</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="simulation.html"><a href="simulation.html#simpson"><i class="fa fa-check"></i><b>B.3</b> Illustration of Simpson’s paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="PAM50.html"><a href="PAM50.html"><i class="fa fa-check"></i><b>C</b> PAM50 proteomics dataset</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="PAM50.html"><a href="PAM50.html#PAM50data"><i class="fa fa-check"></i><b>C.1</b> Data description</a></li>
+<li class="chapter" data-level="C.2" data-path="PAM50.html"><a href="PAM50.html#PAM50process"><i class="fa fa-check"></i><b>C.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="C.3" data-path="PAM50.html"><a href="PAM50.html#PAM50result"><i class="fa fa-check"></i><b>C.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="StemnessBC.html"><a href="StemnessBC.html"><i class="fa fa-check"></i><b>D</b> Stemness-induced proteomics dataset</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCdata"><i class="fa fa-check"></i><b>D.1</b> Data description</a></li>
+<li class="chapter" data-level="D.2" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCprocess"><i class="fa fa-check"></i><b>D.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="D.3" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCresult"><i class="fa fa-check"></i><b>D.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="Gyne.html"><a href="Gyne.html"><i class="fa fa-check"></i><b>E</b> Gynecological and breast cancers data</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="Gyne.html"><a href="Gyne.html#Gynedata"><i class="fa fa-check"></i><b>E.1</b> Data description</a></li>
+<li class="chapter" data-level="E.2" data-path="Gyne.html"><a href="Gyne.html#Gyneprocess"><i class="fa fa-check"></i><b>E.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="E.3" data-path="Gyne.html"><a href="Gyne.html#Gyneresult"><i class="fa fa-check"></i><b>E.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="ST.html"><a href="ST.html"><i class="fa fa-check"></i><b>F</b> Spatial transcriptomics dataset</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="ST.html"><a href="ST.html#STdata"><i class="fa fa-check"></i><b>F.1</b> Data description</a></li>
+<li class="chapter" data-level="F.2" data-path="ST.html"><a href="ST.html#STprocess"><i class="fa fa-check"></i><b>F.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="F.3" data-path="ST.html"><a href="ST.html#STBCresult"><i class="fa fa-check"></i><b>F.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html"><i class="fa fa-check"></i><b>G</b> Implementation</a>
+<ul>
+<li class="chapter" data-level="G.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#GraphRpackage"><i class="fa fa-check"></i><b>G.1</b> GraphR package</a>
+<ul>
+<li class="chapter" data-level="G.1.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#installation"><i class="fa fa-check"></i><b>G.1.1</b> Installation</a></li>
+<li class="chapter" data-level="G.1.2" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_est-function"><i class="fa fa-check"></i><b>G.1.2</b> GraphR_est() function</a></li>
+<li class="chapter" data-level="G.1.3" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_pred-function"><i class="fa fa-check"></i><b>G.1.3</b> GraphR_pred() function</a></li>
+<li class="chapter" data-level="G.1.4" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_visualization-function"><i class="fa fa-check"></i><b>G.1.4</b> GraphR_visualization() function</a></li>
+</ul></li>
+<li class="chapter" data-level="G.2" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#example"><i class="fa fa-check"></i><b>G.2</b> Example</a>
+<ul>
+<li class="chapter" data-level="G.2.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#example-1"><i class="fa fa-check"></i><b>G.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="G.3" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#GraphRshinyApp"><i class="fa fa-check"></i><b>G.3</b> GraphR Shiny App and tutorial website</a></li>
+<li class="chapter" data-level="G.4" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#checkmarks"><i class="fa fa-check"></i><b>G.4</b> Checkmarks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="simulation" class="section level1 hasAnchor" number="2">
+<h1><span class="header-section-number">B</span> Simulation studies<a href="simulation.html#simulation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<!-- violets are <span style="color:blue">blue</span> -->
+<!-- In this Section, we firstly provide details of simulation method for toy example of illustration of Simpson’s paradox in Gaussian graphical models.  -->
+<p>In this Section, we provide more simulation results for undirected (Section <a href="simulation.html#undir">B.1</a>) and directed (Section <a href="simulation.html#dir">B.2</a>) scenarios with different parameters settings such as: sample size <span class="math inline">\((n)\)</span>, number of nodes <span class="math inline">\((p)\)</span>, number of intrinsic factors <span class="math inline">\((q)\)</span>, type of intrinsic factors, connection probability <span class="math inline">\((\pi)\)</span>, regression coefficients of intrinsic factors <span class="math inline">\((\beta)\)</span> and etc. We further discuss the simulation study for illustration of Simpson’s paradox in Gaussian graphical models in Section <a href="simulation.html#simpson">B.3</a>.</p>
+<div id="undir" class="section level2 hasAnchor" number="2.1">
+<h2><span class="header-section-number">B.1</span> Undirected graphical models<a href="simulation.html#undir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Metrics for comparison:</strong> We use the following measures to compare with other methods (I) true positive rate (TPR); (II) false positive rate (FPR); (III) false discovery rate (FDR); (IV) Matthews correlation coefficient (MCC); (V) the area under the receiver operating characteristic (ROC) curve (AUC). MCC <span class="citation">(<a href="#ref-matthews1975comparison">Matthews 1975</a>)</span> measures the quality of binary classification, ranging from +1 (perfect classification) to -1 (total mismatch).</p>
+<p><strong>Comparative methods:</strong> We compare the GraphR method with the following methods (I) Bayesian Gaussian graphical models (BGGM, <span class="citation">Mohammadi and Wit (<a href="#ref-mohammadi2015bayesian">2015</a>)</span>) (II) graphical lasso (GLASSO, <span class="citation">Friedman, Hastie, and Tibshirani (<a href="#ref-friedman2008sparse">2008</a>)</span>) (III) fused graphical lasso (FGL, <span class="citation">Danaher, Wang, and Witten (<a href="#ref-danaher2014joint">2014</a>)</span>) (IV) group graphical lasso (GGL, <span class="citation">Danaher, Wang, and Witten (<a href="#ref-danaher2014joint">2014</a>)</span>) (V) Laplacian shrinkage for inverse covariance matrices from heterogeneous populations (LASICH, <span class="citation">Saegusa and Shojaie (<a href="#ref-saegusa2016joint">2016</a>)</span>) (VI) kernel graphical lasso (K-GLASSO, <span class="citation">Liu et al. (<a href="#ref-liu2010graph">2010</a>)</span>).</p>
+<p>We run BGGM for 10,000 iterations and discard the first 5,000 as burn-in. The tuning parameters of GLASSO is selected based on a stability approach . For FGL, GGL, k-GLASSO and LASICH, approximated Akaike Information Criterion (AIC) is used for the choice of tuning parameters. We set the hyperparameters for the GraphR method as <span class="math inline">\(a_\tau = 0.005, b_\tau = 0.005, a_\pi = 1, b_\pi =4\)</span>.</p>
+<p><strong>Posterior inference:</strong> We are interested in the parameter selection on both intrinsic factors and edges level. Point estimators of each model parameters are obtained by using expectation with respect to the approximation of posterior distribution, for example the point estimates <span class="math inline">\(\hat{\pi}_{ijl} = \int \pi_{ijl} \ \hat{q}(\pi_{ijl})d\pi_{ijl} = E_{\hat{q}}(\pi_{ijl})\)</span>. With respect to selection of intrinsic factors, we use posterior inclusion probability (PIP) of intrinsic factors, which are defined as <span class="math inline">\(\boldsymbol{\hat{p}_{ij}} := [\hat{p}_{ij1},...\hat{p}_{ijq}]^T = [E_{\hat{q}}(s_{ij1}),...E_{\hat{q}}(s_{ijq})]^T\)</span>. For the edge selection between <span class="math inline">\(Y_i\)</span> and <span class="math inline">\(Y_j\)</span>, we take both the magnitude of external coefficient <span class="math inline">\(E_{\hat{q}}(\boldsymbol{b}_{ij})\)</span> and PIP of intrinsic factors <span class="math inline">\(E_{\hat{q}}(\boldsymbol{s}_{ij})\)</span> into consideration, and thus define PIP of edges as <span class="math inline">\(\phi_{ij} := \sum_{l=1}^q \left[ \frac{\|E_{\hat{q}}(b_{ijl}s_{ijl}) X_l\|^2}{\sum_{m=1}^q\left(\| E_{\hat{q}}(b_{ijm}s_{ijm}) X_m\|^2\right)} \hat{p}_{ijl} \right]\)</span>. In the undirected graphical models, we have <span class="math inline">\(\omega_{ij}(\mathbf{X}) = \omega_{ji}(\mathbf{X})\)</span> due to the symmetric property of precision matrix, implying that <span class="math inline">\(s_{ijl}\)</span> and <span class="math inline">\(s_{jil}\)</span> should be 1 or 0 simultaneously. However we parallelize the regressions which leads to significant increase in time-efficacy and also breaks the dependence between <span class="math inline">\(s_{ijl}\)</span> and <span class="math inline">\(s_{jil}\)</span>. Thus <span class="math inline">\(s_{ijl} = s_{jil}\)</span> are not necessarily held during the estimation procedure. To ensure the symmetry of selection indicator, namely <span class="math inline">\(\boldsymbol{s_{ij}} = \boldsymbol{s_{ji}}\)</span>, we use a post-processing based approach following the steps from <span class="citation">Meinshausen and Bühlmann (<a href="#ref-meinshausen2010stability">2010</a>)</span>. We denote <span class="math inline">\(\kappa_{ex}\)</span> and <span class="math inline">\(\kappa_{edge}\)</span> as the threshold of intrinsic factors and edge detection, where intrinsic factors will be selected or conditional dependence exists between edges if the corresponding PIP is larger than <span class="math inline">\(\kappa_{ex}\)</span> and <span class="math inline">\(\kappa_{edge}\)</span>. <span class="math inline">\(\beta_{ijl}\)</span> is non-zero if and only if <span class="math inline">\(\hat{p}_{ijl}^{min} := min (\hat{p}_{ijl} , \hat{p}_{jil}) &gt; \kappa_{ex}\)</span>. Similarly, in the edge detection, <span class="math inline">\(\phi_{ij}^{min} := min (\phi_{ij} , \phi_{ji}) &gt; \kappa_{edge} \Leftrightarrow \text{ edge } \{i,j\}\)</span> exists for <span class="math inline">\(1 \leq i \neq j \leq p\)</span>. In terms of the selection of threshold on both external covariate level and edge level, we considered a Bayesian local FDR-based inference approach aiming to control the average Bayesian FDR at some level <span class="math inline">\(\alpha\)</span> (<span class="citation">Baladandayuthapani et al. (<a href="#ref-baladandayuthapani2010bayesian">2010</a>)</span>,<span class="citation">Morris et al. (<a href="#ref-morris2008bayesian">2008</a>)</span>). Denote the threshold on external covariates or on edges at level <span class="math inline">\(\alpha\)</span> as <span class="math inline">\(\kappa_{ex,\alpha}\)</span> and <span class="math inline">\(\kappa_{edge,\alpha}\)</span> respectively, and denote <span class="math inline">\(q_{ijl} = 1 - \hat{p}_{ijl}^{min}\)</span> and <span class="math inline">\(\tilde{q}_{ij} = 1 - \phi_{ij}^{min}\)</span>. Notably, <span class="math inline">\(q_{ijl} = q_{jil}\)</span> and <span class="math inline">\(\tilde{q}_{ij} = \tilde{q}_{ji}\)</span> due to the definition of <span class="math inline">\(\hat{p}_{ijl}^{min}\)</span> and <span class="math inline">\(\phi_{ij}^{min}\)</span>. PIPs of external covariates and edges represented that posterior probability that the corresponding external covariates or edges were presented from the model, then <span class="math inline">\(q_{ijl}\)</span> and <span class="math inline">\(\tilde{q}_{ij}\)</span> can be regard as estimates of the local FDR for external covariates and edges, which are also known as Bayesian q-values (<span class="citation">Storey (<a href="#ref-storey2003positive">2003</a>)</span>). This statement holds even if we have correlated data (<span class="citation">Ji et al. (<a href="#ref-ji2007bayesian">2007</a>)</span>,<span class="citation">Baladandayuthapani et al. (<a href="#ref-baladandayuthapani2010bayesian">2010</a>)</span>). Based on q-values of external covariates, <span class="math inline">\(\kappa_{ex,\alpha}\)</span> is determined using follow procedure: (1) sort <span class="math inline">\(\{q_{ijl}\}_{1 \leq i &lt; j \leq p, 1 \leq l \leq q}\)</span> in an ascending order and notated the ordered set as <span class="math inline">\(\{q^{(t)} \}_{1 \leq t \leq p(p-1)q/2}\)</span> (2) Calculate the cumulative mean of <span class="math inline">\(\{q^{(t)} \}\)</span>, and find the maximum <span class="math inline">\(t^*\)</span> such that the cumulative mean of <span class="math inline">\(q^{(t^*)}\)</span> is smaller than <span class="math inline">\(\alpha\)</span>, a given significance level. (3) Set <span class="math inline">\(\kappa_{ex,\alpha} = 1-q^{(t^*)}\)</span>. Similar procedure were proposed when choosing <span class="math inline">\(\kappa_{edge,\alpha}\)</span> by replacing <span class="math inline">\(\{q_{ijl}\}_{1 \leq i &lt; j \leq p, 1 \leq l \leq q}\)</span> with <span class="math inline">\(\{\tilde{q}_{ij}\}_{1 \leq i &lt; j \leq p}\)</span>.</p>
+<div id="simgroupspec" class="section level3 hasAnchor" number="2.1.1">
+<h3><span class="header-section-number">B.1.1</span> Multi-category Graphs<a href="simulation.html#simgroupspec" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation design:</strong>
+The samples are evenly classified into <span class="math inline">\(q\)</span> groups, and each sample has <span class="math inline">\(q\)</span> discrete intrinsic factors, indicating the group allocations. Graphs for different groups are generated as following:</p>
+<ol style="list-style-type: upper-roman">
+<li><p>Graph of the first group <span class="math inline">\(G_1\)</span> is obtained from a Erdos-Renyi graphs with connection probability being <span class="math inline">\(\pi\)</span>.</p></li>
+<li><p><span class="math inline">\(G_q\)</span> is constructed by randomly excluding three existing edges and including three new edges from <span class="math inline">\(G_{q-1}\)</span> for <span class="math inline">\(q \geq 2\)</span>.</p></li>
+<li><p>The precision matrices and observations in three groups are generated in the same way as step (II) in the homogeneous case.</p></li>
+</ol>
+<p>We <strong>fix</strong> the simulation parameters <span class="math inline">\(n = 151\)</span>, <span class="math inline">\(p = 33\)</span> and <strong>vary</strong> (I) <span class="math inline">\(q = 2\)</span> (two group indicators) or <span class="math inline">\(q = 3\)</span> (three group indicators); (II) <span class="math inline">\(\pi\)</span> = 2% or 5%.</p>
+<p><strong>Selection performance:</strong>
+Figure <a href="simulation.html#fig:groupsele">B.1</a> shows the selection performance of GraphR and comparison methods with respect to multi-category graphs (groups 2 and 3) with different sparsity levels (2% and 5%). Mean values of AUC, MCC, TPR, FPR and FDR based on 50 repetitions are reported. The GraphR method performs the best in terms of MCC while producing very similar performance for TPR like other methods under all the simulation settings mentioned in the simulation design. The proposed method takes a hit on TPR to produce the lowest FDR and FPR than any other methods for all the simulation settings.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:groupsele"></span>
+<img src="images/group_specific_supp.jpg" alt="Selection Performance in multi-category graphs setting with varying number of groups and sparsity." width="90%" />
+<p class="caption">
+Figure B.1: Selection Performance in multi-category graphs setting with varying number of groups and sparsity.
+</p>
+</div>
+<p><strong>Computation time:</strong>
+Figure <a href="simulation.html#fig:grouptime">B.2</a> shows the mean of computation time in seconds for GraphR and other competing methods w.r.t. 50 replications along with different groups and sparsity levels. GraphR is more computationally efficient than LASICH for all the settings. The LASSO based methods (FGL and GGL) are marginally faster than GraphR but those methods are unable to quantify uncertainty.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:grouptime"></span>
+<img src="images/group_time.jpg" alt="Computation time(s) in group-specific setting with varying number of groups and varying sparsity." width="90%" />
+<p class="caption">
+Figure B.2: Computation time(s) in group-specific setting with varying number of groups and varying sparsity.
+</p>
+</div>
+<p><strong>Summary:</strong> For the multi-category graph settings, GraphR has marginally similar performance with three comparison methods in terms of AUC. However, in case of other overall performance indicator MCC, GraphR outperforms all other methods. Though GraphR is inferior to comparison methods in TRP, FDR and FPR for GraphR is much lower, which can be viewed as a trade-off. GraphR is also computationally efficient with <span class="math inline">\(&lt;2.5\)</span>s computation time on average for all cases.</p>
+</div>
+<div id="simcont" class="section level3 hasAnchor" number="2.1.2">
+<h3><span class="header-section-number">B.1.2</span> Continuously Varying Graphs<a href="simulation.html#simcont" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation design:</strong>
+Data are generated based on the assumed model by introducing two continuous intrinsic factors. (I) For <span class="math inline">\(i &lt; j\)</span>, 2% of coefficients for continuous intrinsic factors <span class="math inline">\(\beta_{ijl}\)</span> are uniformly chose from -1 or 1 while others are set to be 0. Let the corresponding <span class="math inline">\(\beta_{jil}\)</span> equal to <span class="math inline">\(\beta_{ijl}\)</span>. Two continuous intrinsic factors are drawn from Uniform <span class="math inline">\((-1,1)\)</span>. We construct an individual-specific precision matrix <span class="math inline">\(\Omega_n\)</span> by fixing the diagonal entries <span class="math inline">\(\omega_{ii}\)</span> to be 1 and calculating <span class="math inline">\(\omega_{nij} = \sum_{l=1}^2\beta_{nijl}X_{nl}\)</span>. (II) Repeat step (I) until <span class="math inline">\(\Omega_n\)</span> is positive definite for all <span class="math inline">\(n\)</span>. (III) Generate <span class="math inline">\(y_n\)</span> from <span class="math inline">\(N(0, \Omega_n^{-1})\)</span>.</p>
+<p>We set the parameters as <span class="math inline">\(n = 151\)</span>, <span class="math inline">\(p = 33\)</span>, <span class="math inline">\(q = 2\)</span>, <span class="math inline">\(\pi\)</span> = 2%.</p>
+<p><strong>Computation time: </strong>
+Figure <a href="simulation.html#fig:conttime">B.3</a> shows the mean of computation time in seconds of GraphR and comparison methods based on 50 repetitions.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conttime"></span>
+<img src="images/cont_time.jpg" alt="Computation time(s) in  individual-specific Case." width="50%" />
+<p class="caption">
+Figure B.3: Computation time(s) in individual-specific Case.
+</p>
+</div>
+<p><strong>Summary:</strong> Consistent with previous findings, GraphR is computationally efficient than BGGM and k-GLASSO, though takes more computation time than GLASSO. However GLASSO cannot accommodate for heterogenous settings and provide probabilistic reasoning.</p>
+</div>
+<div id="simhomo" class="section level3 hasAnchor" number="2.1.3">
+<h3><span class="header-section-number">B.1.3</span> Homogeneous Graphs<a href="simulation.html#simhomo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation design:</strong>
+We assume that all individuals are homogeneous, implying <span class="math inline">\(\Omega_n = \Omega\)</span>, <span class="math inline">\(\forall\)</span> <span class="math inline">\(n \in \{1,...,151\}\)</span>. We only include one constant effect as the intrinsic factor, and generate data as following:</p>
+<ol style="list-style-type: upper-roman">
+<li><p>Generate a Erdős–Rényi graph G by setting connection probability 2%. If the edge <span class="math inline">\(\{i,j\}\)</span> are connected in G, then the corresponding off-diagonal entries <span class="math inline">\(\omega_{ij} = \omega_{ji}\)</span> are uniformly drawn from <span class="math inline">\([-1,-0.5] \cup [0.5,1]\)</span> otherwise <span class="math inline">\(\omega_{ij}\)</span> are set to be 0. The diagonal entries <span class="math inline">\(\omega_{ii}\)</span> are set to be 1.</p></li>
+<li><p>The simulated <span class="math inline">\(\Omega\)</span> from (I) is not necessarily to be positively definite, and thus we will add <span class="math inline">\(0.1I_{33}\)</span> to <span class="math inline">\(\Omega\)</span> until it is positively definite.</p></li>
+<li><p>Generate 151 independent observations from <span class="math inline">\(N(0, \Omega^{-1})\)</span> and set intrinsic factors to be intercept only.</p></li>
+</ol>
+<p>We fix the simulation parameters as <span class="math inline">\(n = 151\)</span>, <span class="math inline">\(p = 33\)</span>, <span class="math inline">\(q = 1\)</span> (intercept only model), <span class="math inline">\(\pi\)</span> = 2% or 5%.</p>
+<!-- **b. Simulation Parameters**  -->
+<!-- Fixed: n = 151, p = 33, q = 1 (Intercept only), $\pi$ = 5% -->
+<p><strong>Selection performance:</strong>
+Figure <a href="simulation.html#fig:homosele">B.4</a> shows the selection performance of GraphR and comparison methods by using mean values of AUC, MCC, TPR, FPR and FDR based on 50 repetitions with sparsity being 5%. GraphR performs better than GLASSO except for TPR. BGGM performs marginally better than GraphR in the homogeneous setting. GraphR produces marginally better or at par with reduced level of TPR.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:homosele"></span>
+<img src="images/homo_pr5.jpg" alt="Selection Performance in homogenuous setting for 5% sparsity level." width="70%" />
+<p class="caption">
+Figure B.4: Selection Performance in homogenuous setting for 5% sparsity level.
+</p>
+</div>
+<p><strong>Computation time:</strong>
+Figure <a href="simulation.html#fig:homotime">B.5</a> shows the mean of computation time in seconds for GraphR and other competitive methods with different levels pf sparsity. The results are based on 50 replications. GraphR is significantly faster than BGGM since GraphR is VB based algorithm whereas BGGM is based on Markov Chain Monte Carlo (MCMC). The frequentist method GLASSO is computationally efficient than GraphR but GLASSO is unable to do the uncertainty quantification.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:homotime"></span>
+<img src="images/homo_time.jpg" alt="Computation times for homogenuous setting with sparsity level at 2% and 5%." width="70%" />
+<p class="caption">
+Figure B.5: Computation times for homogenuous setting with sparsity level at 2% and 5%.
+</p>
+</div>
+<p><strong>Summary:</strong> By design GraphR method is favorable for heterogeneous settings. For the homogeneous setting, GraphR outperforms the frequentist method GLASSO and marginally similar performance with the Bayesian method BGGM at the cost of reduced FDR level. GraphR is computationally efficient than Bayesian methods. The method produces better efficacy rates while enabling uncertainty quantification unlike the frequentist methods.</p>
+</div>
+</div>
+<div id="dir" class="section level2 hasAnchor" number="2.2">
+<h2><span class="header-section-number">B.2</span> Directed acyclic graphs (DAGs)<a href="simulation.html#dir" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here we consider a special case of our GraphR where directions of edges are pre-assumed, leading to a directed acyclic graph model. Three simulation settings are discussed here to illustrate the performance the GraphR method in case of variable selection and scalability for moderate and/or large number of nodes (p) and intrinsic factors (q).</p>
+<!-- in which pre-knowledge based directions of edges are assumed, leading to a directed acyclic graph model. -->
+<p><strong>Simulation design:</strong>
+Data is generated as following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Based on the proposed types of intrinsic factors, we generate continuous intrinsic factors from Uniform(0,1) and discrete intrinsic factors from Bernoulli(0.5). In the settings with large number of intrinsic factors, 70% of intrinsic factors are set to be continuous.</p></li>
+<li><p>For each external variables, 2% second layer of regression coefficients <span class="math inline">\(\beta_{ij}^{(k)}\)</span> are randomly selected to be non-zero and are set to be 3 when <span class="math inline">\(i &gt; j\)</span>.</p></li>
+<li><p>The first node (<span class="math inline">\(i=1\)</span>) is generated from <span class="math inline">\(N(0,1)\)</span>. In terms of <span class="math inline">\(i^{th}\)</span> node <span class="math inline">\(Y_i\)</span> (<span class="math inline">\(i \geq 2\)</span>), we standardize <span class="math inline">\(Y_j\)</span> for all <span class="math inline">\(j &lt; i\)</span>, and denote these standardized nodes as <span class="math inline">\(\tilde{Y_j}\)</span>. Draw <span class="math inline">\(Y_i\)</span> from Normal distribution with mean being <span class="math inline">\(\sum_{j&lt;i}\left[(\beta_{ij}^{(1)}Z^{(1)} + \beta_{ij}^{(2)}Z^{(2)}) \odot \tilde{Y_j} \right]\)</span> and standard deviation being 1.</p></li>
+</ol>
+<p>We use the same 5 metrics (TPR, FPR, FDR, MCC, AUC) to compare across multiple settings and set the hyperparameters <span class="math inline">\(a_\tau = 0.005, b_\tau = 0.005, a_\pi = 1, b_\pi =1\)</span>. The probability cutoff is selected to control the Bayesian FDR at 1%.</p>
+<!-- **b. Metrics:** (i) true positive rate (TPR); (ii) false positive rate (FPR); (iii) false discovery rate (FDR); (iv) Matthews correlation coefficient (MCC); (v) the area under the ROC curve (AUC).  -->
+<!-- **c. Hyperparameters:** $a_\tau = 0.005, b_\tau = 0.005, a_\pi = 1, b_\pi =1$ -->
+<!-- The probability cutoff was selected to control the Bayesian FDR at 1%. -->
+<div id="moderate" class="section level3 hasAnchor" number="2.2.1">
+<h3><span class="header-section-number">B.2.1</span> Moderate dimensions<a href="simulation.html#moderate" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation parameters:</strong>
+We <strong>fix</strong> the simulation parameters <span class="math inline">\(p = 50\)</span>, <span class="math inline">\(q = 2\)</span>, <span class="math inline">\(\pi\)</span> <span class="math inline">\(= 2\%\)</span> and <strong>vary</strong> the ratio <span class="math inline">\(n/pq = 1,2,3,4,5\)</span> and type of intrinsic factors (discrete/continuous).</p>
+<!-- *Fixed*: p = 50; q = 2; $\pi$ = 2% -->
+<!-- *Varied*: n/pq = 1,2,3,4,5; Type of intrinsic factors -->
+<p><strong>Selection performance:</strong>
+Figure <a href="simulation.html#fig:modext">B.6</a> shows the selection performance of intrinsic factors for the GraphR method in DAG where number of nodes and intrinsic factors are moderate. Each column of the panel indicates types of intrinsic factors while each row represent magnitude of <span class="math inline">\(\beta\)</span>. Mean values and 95% confidence interval (CI) of AUC, MCC, TPR, FPR and FDR based on 50 repetitions are reported.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modext"></span>
+<img src="images/moderate_ext.jpg" alt="Selection performance in terms of intrinsic factors in directed acyclic graphs with moderate setting." width="100%" />
+<p class="caption">
+Figure B.6: Selection performance in terms of intrinsic factors in directed acyclic graphs with moderate setting.
+</p>
+</div>
+<p>Figure <a href="simulation.html#fig:modnode">B.7</a> shows the edge selection performance of GraphR in the DAG setting where number of nodes and intrinsic factors are moderate. All other settings are same as <a href="simulation.html#fig:modext">B.6</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modnode"></span>
+<img src="images/moderate_node.jpg" alt="Selection performance in terms of edges in directed acyclic graphs with moderate setting." width="100%" />
+<p class="caption">
+Figure B.7: Selection performance in terms of edges in directed acyclic graphs with moderate setting.
+</p>
+</div>
+<p>The selection performance of GraphR in terms of intrinsic factors and edges is generally better with increasing effect size (<span class="math inline">\(\beta\)</span>) and ratio between <span class="math inline">\(n\)</span> and <span class="math inline">\(pq\)</span>. However when <span class="math inline">\(n/pq\)</span> ratio is 5, FDR has is slightly larger than the case when <span class="math inline">\(n/pq\)</span> ratio is 3 or 4, leading to decrease in MCC. One of the potential reason is that estimates are local optimum. Moreover, GraphR tended to perform slightly better with more discrete continuous intrinsic factors when <span class="math inline">\(n/pq\)</span> is not large enough.</p>
+<p><strong>Computation times: </strong>
+Figure <a href="simulation.html#fig:modtime">B.8</a> shows the mean and 95% CI of computation time in seconds for GraphR with different types of intrinsic factors and <span class="math inline">\(n/pq\)</span> ratio. Results are based on 50 repetitions. We observe an increasing pattern till the ratio is 4 and a sudden drop at 5, partly due to the fact that convergence to normality is easier to fulfilled with larger sample size.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:modtime"></span>
+<img src="images/moderate_time.jpeg" alt="Computation time in directed acyclic graphs with moderate setting." width="100%" />
+<p class="caption">
+Figure B.8: Computation time in directed acyclic graphs with moderate setting.
+</p>
+</div>
+</div>
+<div id="largep" class="section level3 hasAnchor" number="2.2.2">
+<h3><span class="header-section-number">B.2.2</span> Large number of nodes<a href="simulation.html#largep" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation parameters: </strong>
+We <strong>fix</strong> the simulation parameters <span class="math inline">\(q = 2\)</span>, <span class="math inline">\(\pi\)</span> <span class="math inline">\(= 2\%\)</span> and <strong>vary</strong> the ratio <span class="math inline">\(n/pq = 1,2,3,5\)</span> (i.e. <span class="math inline">\(p=100, 200, 300, 400, 500\)</span>), type of intrinsic factors (discrete/continuous) and magnitude of regression coefficients (<span class="math inline">\(\beta=2,3\)</span>).</p>
+<!-- *Fixed*: q = 2; $\pi$ = 2% -->
+<!-- *Varied*: p = 100, 200, 300, 500; n/pq = 1,2,3,4,5; Type of intrinsic factors; $\beta = 2$ or $3$ -->
+<p><strong>Selection performance: </strong>
+Figure <a href="simulation.html#fig:highpext">B.9</a> and <a href="simulation.html#fig:highpnode">B.10</a> show the selection performance of GraphR in terms of intrinsic factors and edges in directed acyclic graphs. Number of nodes are set to be 100, 200, 300 and 500 as shown on the top of each plot. Other settings are same as <a href="simulation.html#fig:modext">B.6</a> and <a href="simulation.html#fig:modnode">B.7</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:highpext"></span>
+<img src="images/highp_ext.jpg" alt="Selection performance in terms of intrinsic factors in directed acyclic graphs with large number of nodes." width="100%" />
+<p class="caption">
+Figure B.9: Selection performance in terms of intrinsic factors in directed acyclic graphs with large number of nodes.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:highpnode"></span>
+<img src="images/highp_node.jpg" alt="Selection performance in terms of edges in directed acyclic graphs with large number of nodes." width="100%" />
+<p class="caption">
+Figure B.10: Selection performance in terms of edges in directed acyclic graphs with large number of nodes.
+</p>
+</div>
+<p>Generally, we can observe an increasing trend in AUC, MCC and TPR and decreasing trend in FDR and FPR with larger <span class="math inline">\(n/pq\)</span> ratio and effect size which is similar as the pattern in the moderate setting. However, there are some exception. For example when number of nodes is 500, there is a sudden jump of FDR at <span class="math inline">\(n/pq=3\)</span> with relatively large standard deviation, which also can be reflected the decrease in MCC. This phenomena might be caused by some cases where only local optimum are found.</p>
+<p><strong>Computation times: </strong>
+Figure <a href="simulation.html#fig:highptime">B.11</a> shows the mean and 95% CI of computation time in seconds of GraphR based on 50 repetitions. Each row of panel represent types of intrinsic factors while each column indicates the magnitude of coefficients. Number of nodes are set to be 100, 200, 300 and 500, represented by different colors. In most of the cases, longer computation times are needed when sample size and number of nodes increase.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:highptime"></span>
+<img src="images/highp_time.jpeg" alt="Computation time in directed acyclic graphs with large number of nodes." width="100%" />
+<p class="caption">
+Figure B.11: Computation time in directed acyclic graphs with large number of nodes.
+</p>
+</div>
+</div>
+<div id="largeq" class="section level3 hasAnchor" number="2.2.3">
+<h3><span class="header-section-number">B.2.3</span> Large number of intrinsic factors<a href="simulation.html#largeq" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p><strong>Simulation parameters:</strong> We <strong>fix</strong> the simulation parameters <span class="math inline">\(p = 50\)</span>, <span class="math inline">\(\pi\)</span> <span class="math inline">\(= 2\%\)</span>, and 70% of intrinsic factors are set to be continuous. We also <strong>vary</strong> the ratio <span class="math inline">\(q = 2,5,10\)</span>, <span class="math inline">\(n/pq = 1,2,3,5\)</span> and magnitude of regression coefficients (<span class="math inline">\(\beta=2,3\)</span>).</p>
+<p><strong>Selection performance: </strong>
+Figure <a href="simulation.html#fig:largeqext">B.12</a> and <a href="simulation.html#fig:largeqnode">B.13</a> show the selection performance of GraphR in terms of intrinsic factors and nodes in directed acyclic graphs. Number of intrinsic factors are set to be 2, 5 and 10 and 70% of covariates are continuous. Other settings are same as <a href="simulation.html#fig:modext">B.6</a> and <a href="simulation.html#fig:modnode">B.7</a>.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:largeqext"></span>
+<img src="images/highq_ext.jpg" alt="Selection performance in terms of intrinsic factors in directed acyclic graphs with large number of intrinsic factors." width="100%" />
+<p class="caption">
+Figure B.12: Selection performance in terms of intrinsic factors in directed acyclic graphs with large number of intrinsic factors.
+</p>
+</div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:largeqnode"></span>
+<img src="images/highq_node.jpg" alt="Selection performance in terms of edges in directed acyclic graphs with large number of intrinsic factors." width="100%" />
+<p class="caption">
+Figure B.13: Selection performance in terms of edges in directed acyclic graphs with large number of intrinsic factors.
+</p>
+</div>
+<p>Similar as previous findings, GraphR performs better with larger <span class="math inline">\(n/pq\)</span> ratio and effect size. Importantly, the accuracy of selection also decreases when q is relatively large, suggesting that higher <span class="math inline">\(n/pq\)</span> is needed in order to ensure the quality of estimation.</p>
+<strong>Computation time: </strong>
+Figure <a href="simulation.html#fig:HighqTime">B.14</a> shows the mean and 95% CI of computation time in seconds for GraphR based on 50 repetitions. Number of intrinsic factors are set to be 2, 5 and 10, represented by different colors.
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:HighqTime"></span>
+<img src="images/highq_time.jpeg" alt="Computation time in directed acyclic graphs with large number of intrinsic factors." width="100%" />
+<p class="caption">
+Figure B.14: Computation time in directed acyclic graphs with large number of intrinsic factors.
+</p>
+</div>
+<p>Computation time increase with larger number of intrinsic factors regardless of the effect sizes. Moreover, variability are also greater when number of intrinsic factors are larger.</p>
+</div>
+</div>
+<div id="simpson" class="section level2 hasAnchor" number="2.3">
+<h2><span class="header-section-number">B.3</span> Illustration of Simpson’s paradox<a href="simulation.html#simpson" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Simulation design:</strong>
+We set overall sample size as 200, number of nodes as 3 and number of groups as 2. Samples are evenly drawn from two groups with distinct conditional independence structures. Generation of precision matrices <span class="math inline">\(\Omega,\tilde{\Omega} \in \mathbb{R}^{3 \times3}\)</span> for the first and the second group is described as follow:</p>
+<ol style="list-style-type: upper-roman">
+<li><p>Denote <span class="math inline">\(\Omega = [\omega_{ij}]_{3 \times 3}\)</span>. Three diagonal entries are set as 1. For off-diagonal entries, <span class="math inline">\(\omega_{12} = \omega_{21}\)</span> are uniformly drawn from <span class="math inline">\([0.5,1]\)</span>, <span class="math inline">\(\omega_{13} = \omega_{31}\)</span> are uniformly drawn from <span class="math inline">\([-1, -0.5]\)</span>, and <span class="math inline">\(\omega_{23} = \omega_{32}\)</span> are set to be 0.</p></li>
+<li><p>Denote <span class="math inline">\(\tilde \Omega = [\tilde \omega_{ij}]_{3 \times 3}\)</span>. Three diagonal entries are set as 1. For off-diagonal entries, <span class="math inline">\(\tilde \omega_{12} = \tilde \omega_{21}\)</span> are uniformly drawn from <span class="math inline">\([-1, -0.5]\)</span>, <span class="math inline">\(\tilde \omega_{23} = \tilde \omega_{32}\)</span> are uniformly drawn from <span class="math inline">\([0.5,1]\)</span>, and <span class="math inline">\(\tilde \omega_{13} = \tilde \omega_{31}\)</span> are set to be 0.</p></li>
+</ol>
+<p>Repeat (I) and (II) until both <span class="math inline">\(\Omega,\tilde{\Omega}\)</span> are positive definite matrices.</p>
+<p>Generate 100 observations from <span class="math inline">\(N(0, \Omega^{-1})\)</span> and 100 observations from <span class="math inline">\(N(0, \tilde \Omega^{-1})\)</span>, and set intrinsic factors to be intercept only for homogeneous case and to be group indicators for heterogeneous case.</p>
+
+</div>
+</div>
+<h3>References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-baladandayuthapani2010bayesian" class="csl-entry">
+Baladandayuthapani, Veerabhadran, Yuan Ji, Rajesh Talluri, Luis E Nieto-Barajas, and Jeffrey S Morris. 2010. <span>“Bayesian Random Segmentation Models to Identify Shared Copy Number Aberrations for Array CGH Data.”</span> <em>Journal of the American Statistical Association</em> 105 (492): 1358–75.
+</div>
+<div id="ref-danaher2014joint" class="csl-entry">
+Danaher, Patrick, Pei Wang, and Daniela M Witten. 2014. <span>“The Joint Graphical Lasso for Inverse Covariance Estimation Across Multiple Classes.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 76 (2): 373–97.
+</div>
+<div id="ref-friedman2008sparse" class="csl-entry">
+Friedman, Jerome, Trevor Hastie, and Robert Tibshirani. 2008. <span>“Sparse Inverse Covariance Estimation with the Graphical Lasso.”</span> <em>Biostatistics</em> 9 (3): 432–41.
+</div>
+<div id="ref-ji2007bayesian" class="csl-entry">
+Ji, Yuan, Guosheng Yin, Kam-Wah Tsui, Mikhail G Kolonin, Jessica Sun, Wadih Arap, Renata Pasqualini, and Kim-Anh Do. 2007. <span>“Bayesian Mixture Models for Complex High Dimensional Count Data in Phage Display Experiments.”</span> <em>Journal of the Royal Statistical Society: Series C (Applied Statistics)</em> 56 (2): 139–52.
+</div>
+<div id="ref-liu2010graph" class="csl-entry">
+Liu, Han, Xi Chen, Larry Wasserman, and John Lafferty. 2010. <span>“Graph-Valued Regression.”</span> <em>Advances in Neural Information Processing Systems</em> 23.
+</div>
+<div id="ref-matthews1975comparison" class="csl-entry">
+Matthews, Brian W. 1975. <span>“Comparison of the Predicted and Observed Secondary Structure of T4 Phage Lysozyme.”</span> <em>Biochimica Et Biophysica Acta (BBA)-Protein Structure</em> 405 (2): 442–51.
+</div>
+<div id="ref-meinshausen2010stability" class="csl-entry">
+Meinshausen, Nicolai, and Peter Bühlmann. 2010. <span>“Stability Selection.”</span> <em>Journal of the Royal Statistical Society: Series B (Statistical Methodology)</em> 72 (4): 417–73.
+</div>
+<div id="ref-mohammadi2015bayesian" class="csl-entry">
+Mohammadi, Abdolreza, and Ernst C Wit. 2015. <span>“Bayesian Structure Learning in Sparse Gaussian Graphical Models.”</span> <em>Bayesian Analysis</em> 10 (1): 109–38.
+</div>
+<div id="ref-morris2008bayesian" class="csl-entry">
+Morris, Jeffrey S, Philip J Brown, Richard C Herrick, Keith A Baggerly, and Kevin R Coombes. 2008. <span>“Bayesian Analysis of Mass Spectrometry Proteomic Data Using Wavelet-Based Functional Mixed Models.”</span> <em>Biometrics</em> 64 (2): 479–89.
+</div>
+<div id="ref-saegusa2016joint" class="csl-entry">
+Saegusa, Takumi, and Ali Shojaie. 2016. <span>“Joint Estimation of Precision Matrices in Heterogeneous Populations.”</span> <em>Electronic Journal of Statistics</em> 10 (1): 1341.
+</div>
+<div id="ref-storey2003positive" class="csl-entry">
+Storey, John D. 2003. <span>“The Positive False Discovery Rate: A Bayesian Interpretation and the q-Value.”</span> <em>The Annals of Statistics</em> 31 (6): 2013–35.
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="method.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="PAM50.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/02-Simulation-study.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

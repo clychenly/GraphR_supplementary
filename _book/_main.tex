@@ -1,0 +1,1566 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+\usepackage{booktabs}
+
+\def\T{{ \mathrm{\scriptscriptstyle T} }}
+\def\tr{{\rm tr\,}}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity},
+  pdfauthor={Liying Chen\^{}\{1,5\}, Satwik Acharyya\^{}\{1,5\}, Chunyu Luo\^{}\{2,3\}, Yang Ni\^{}4 and Veerabhadran Baladandayuthapani\^{}\{1,6\}},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity}
+\author{Liying Chen\(^{1,5}\), Satwik Acharyya\(^{1,5}\), Chunyu Luo\(^{2,3}\), Yang Ni\(^4\) and Veerabhadran Baladandayuthapani\(^{1,6}\)}
+\date{\(^1\)Department of Biostatistics, University of Michigan, \(^2\)Department of Statistics, University of Michigan, \(^3\)Department of Electrical Engineering and Computer Science, University of Michigan, \(^4\)Department of Statistics, Texas A\&M University \(^5\)These authors contributed equally. \(^6\)Corresponding author\(:\) \href{mailto:veerab@umich.edu}{\nolinkurl{veerab@umich.edu}}}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{appendix-supplementary-materials}{%
+\appendix}
+
+
+\hypertarget{introduction}{%
+\chapter*{Introduction}\label{introduction}}
+\addcontentsline{toc}{chapter}{Introduction}
+
+Network modeling are widely used in biomedical research, aiming to estimate and visualize complicated dependency structures in various fields and at different level. Graphically, networks compromise a set of variables (nodes) and relationships among nodes which are referred as edges. Under the assumption that: (1) edges represent partial correlation between nodes; (2) nodes follow Gaussian distribution, leading to a Gaussian graphical models (GGM, \citet{lauritzen1996graphical}). GGM can be represented as a multivariate Gaussian distribution, usually with a sparse precision matrix of which a zero entry is equivalent to conditional independence. Most current probabilistic GGM-based methods assume homogeneous samples which limits the applicability of these models to incorporate heterogeneity across samples that is routinely present in many scientific contexts. We propose a flexible and computationally efficient approach called Graphical Regression (GraphR) which allows for covariate-dependent graphs and enables incorporation of sample heterogeneity. The Figure below provides an overview of the GraphR method.
+
+Here we provide supplementary materials for Probabilistic Graphical Modeling under Heterogeneity, which are organized as following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  In Section \ref{method}, we provide a detailed derivation of the methodology.
+\item
+  In Section \ref{simulation}, additional simulation results for undirected and directed settings are discussed.
+\item
+  In Section \ref{PAM50}, we present the additional results from the PAM50 protemoics dataset.
+\item
+  In Section \ref{StemnessBC}, more results from stemness and age based breast cancer data are provided.\\
+\item
+  In Section \ref{Gyne}, we added further analysis from pan-gynecological breast cancer data.
+\item
+  In Section \ref{ST}, additional results from from spatial transcriptomics breast cancer data are presented.
+\item
+  In Section \ref{ImplementGraphR}, we layout the implementation related details of the GraphR package.
+\end{enumerate}
+
+\hypertarget{method}{%
+\chapter{Methodology}\label{method}}
+
+In this Section, we discuss the GraphR model and priors in Section \ref{GraphRmodel} and brief introduction to variational Bayes inference method with mean-field assumption in Section \ref{MFVB} followed by detailed derivation of the update equations and evidence lower bound (ELBO) for our GraphR model in Section \ref{derivation} and Section \ref{GraphElbo} respectively. In Section \ref{GraphRcompare}, we provide a comprehensive overview of the GraphR and competing methods.
+
+For notational purposes, we consider \(\mathbf{Y} = (Y_1,...,Y_p) \in \mathbb{R}^ {N \times p} \sim \mathcal{N}(\mu,\Omega^{-1}(\mathbf{X}))\), where the precision matrix \(\Omega(\mathbf{X}) = [\omega_{ij}(\mathbf{X})]_{p \times p}\) is a function of external covariates \(\mathbf{X} = (X_1,...,X_q) \in \mathbb{R}^ {N \times q}\) and denote \(\boldsymbol{\theta}\) as the parameters of estimation. Here \(N\), \(p\), \(q\) denotes sample size, number of features and covariates respectively.
+
+\hypertarget{GraphRmodel}{%
+\section{Model and priors}\label{GraphRmodel}}
+
+The GraphR model is expressed as follows:
+\begin{equation}
+\begin{split}
+&   Y_i = \sum_{j \neq i}^p \gamma_{ij}(\mathbf{X}) \odot Y_j + \epsilon_i, \hspace{0.5cm}  \epsilon_i \sim N(0,\frac{1}{\omega_{ii}}), \\
+& \gamma_{ij}(X) = -\frac{\omega_{ij}(\mathbf{X})}{\omega_{ii}} = 
+    -\frac{1}{\omega_{ii}} \mathbf{X} \boldsymbol{\beta_{ij}} = 
+    -\frac{1}{\omega_{ii}} 
+    \left(\sum_{l=1}^q \beta_{ijl}X_l \right)
+\end{split}
+\label{eq:graph-reg}
+\end{equation}
+where \(\odot\) represents the element-wise multiplication between vectors.
+
+Priors on the GraphR model are given below:
+\begin{align}
+\begin{split}
+&  \beta_{ijl} = b_{ijl} s_{ijl}, \\
+&  b_{ijl} \mid \tau_{il} \sim N (0,\tau_{il}^{-1}), \\
+&  s_{ijl} \mid \pi_{ijl} \sim \text{Ber}(\pi_{ijl}), \\
+&    \tau_{il} \sim \text{Gamma}(a_\tau,b_\tau) \\
+&    \pi_{ijl} \sim \text{Beta}(a_\pi,b_\pi) \\
+& \omega_{ii} \propto 1. \\
+\end{split}
+\label{eq:spike-slab}
+\end{align}
+
+Parameters of estimation are \(\boldsymbol{\theta} = \{ \boldsymbol{b,s,\omega,\pi,\tau}\}\).
+
+\hypertarget{MFVB}{%
+\section{Mean field variational Bayes}\label{MFVB}}
+
+Varitional Bayes method aims to obtain the optimal approximation of true posterior distribution from a class of tractable distributions \(Q\), called variational family, by minimizing the Kullback-Leibler (KL) divergence between the approximate \(q_{\text{vb}}(\boldsymbol{\theta})\) and the true posterior distribution \(p(\boldsymbol{\theta|\mathbf{Y,X}})\) \citep{attias2000speech}. A common choice of \(Q\), known as mean-field approximation, assumes that \(q_{\text{vb}}(\boldsymbol{\theta})\) can be expressed as \(\prod_{k=1}^K q^k_{\text{vb}}(\boldsymbol{\theta_k})\) for some partition of \(\boldsymbol{\theta}\). One can write \(q_{\text{vb}}(\boldsymbol{\theta})\) as
+
+\begin{align}\label{eq:KL_div}
+    & q_{\text{vb}}^{*}(\boldsymbol{\theta}) \in \text{arg} \underset{q_{\text{vb}}(\boldsymbol{\theta}) \in \mathbb{Q}}{\text{min}} \ KL(q_{\text{vb}}(\boldsymbol{\theta})\|p(\boldsymbol{\theta |Y,X})) \text{, where} \nonumber \\
+    & KL(q_{\text{vb}}(\boldsymbol{\theta})\|p(\boldsymbol{\theta|Y,X})) = \int q_{\text{vb}}(\boldsymbol{\theta}) \text{ log} \left (\frac{q_{\text{vb}}(\boldsymbol{\theta})}{p(\boldsymbol{\theta|Y,X})}\right)d\boldsymbol{\theta} \nonumber \\
+    & = - \int q_{\text{vb}}(\boldsymbol{\theta}) \text{ log} \left (\frac{p(\boldsymbol{\theta|Y,X})}{q_{\text{vb}}(\boldsymbol{\theta})}\right)d\boldsymbol{\theta} 
+     = - \int q_{\text{vb}}(\boldsymbol{\theta}) \text{ log} \left (\frac{p(\boldsymbol{\theta,Y,X})}{q_{\text{vb}}(\boldsymbol{\theta})}\right)d\boldsymbol{\theta} + \text{ log} \left[ p(\boldsymbol{Y,X}) \right].
+\end{align}
+
+We denote \(L[q_{\text{vb}}(\boldsymbol{\theta})] = \int q_{\text{vb}}(\boldsymbol{\theta}) \text{log} \left ( p(\boldsymbol{\theta,Y,X}) / q_{\text{vb}}(\boldsymbol{\theta}) \right)d\boldsymbol{\theta}\) which is the lower bound of the model log-likelihood, and write \(KL(q_{\text{vb}}(\boldsymbol{\theta})\|p(\boldsymbol{\theta|Y,X})) = -L[q_{\text{vb}}(\boldsymbol{\theta})] + \text{ log} \left[ p(\boldsymbol{Y,X}) \right]\). Minimizing KL-divergence is equivalent to maximizing \(L[q_{\text{vb}}(\boldsymbol{\theta})]\) since \(\text{ log} \left[ p(\boldsymbol{Y,X}) \right]\) doesn't involve \(\boldsymbol{\theta}\). We can further show that
+\begin{align}\label{eq:lowerbound}
+L[q_{\text{vb}}(\boldsymbol{\theta})] &= \int q_{\text{vb}}(\boldsymbol{\theta}) \left[ \text{ log }p(\boldsymbol{\theta,Y,X}) - \text{ log } q_{\text{vb}}(\boldsymbol{\theta}) \right] d\boldsymbol{\theta} \nonumber \\
+& = \int q^{k}_{\text{vb}}(\boldsymbol{\theta_k})
+\int \left[
+\left(\text{ log }p(\boldsymbol{\theta,Y,X}) - \text{ log }q_{\text{vb}}(\boldsymbol{\theta_k})
+\right) \right] \prod_{i \neq k} q_{\text{vb}}(\boldsymbol{\theta_i}) d\boldsymbol{\theta_{-k}}d\boldsymbol{\theta_k}  
+\nonumber \\
+& \text{  } -\int \sum_{i \neq k} \text{ log }q_{\text{vb}}(\boldsymbol{\theta_i}) \prod_{i \neq k} q_{\text{vb}}(\boldsymbol{\theta_i}) \int q_{\text{vb}}(\boldsymbol{\theta_k}) d\boldsymbol{\theta_{-k}}d\boldsymbol{\theta_k} 
+\nonumber \\
+&= \int q^{k}_{\text{vb}}(\boldsymbol{\theta_k})
+\left[\mathbb{E}_{-k} (\text{ log }p(\boldsymbol{\theta,Y,X})) - 
+\text{ log } q_{\text{vb}}(\boldsymbol{\theta_k})\right]
+d\boldsymbol{\theta_k} - \text{const}  \nonumber \\
+&=-KL(q^{k}_{\text{vb}}(\boldsymbol{\theta_k}) \| \text{ exp } \left[
+\mathbb{E}_{-k} (\text{ log }p(\boldsymbol{\theta,Y,X}))
+\right]).
+\end{align}
+
+Therefore, we have \(q^{k}_{\text{vb}}(\boldsymbol{\theta_k}) \propto \text{ exp } \left[ \mathbb{E}_{-k} (\text{ log }p(\boldsymbol{\theta,Y,X})) \right]\).
+
+\hypertarget{derivation}{%
+\section{Update equations}\label{derivation}}
+
+The likelihood is expressed as
+\begin{align}
+    p(\boldsymbol{\theta,Y,X}) &\propto \prod_{i=1}^p 
+    \left\{
+    \left|
+    \frac{1}{\omega_{ii}}I_n
+    \right|^{-\frac{1}{2}} \text{exp} 
+    \left[ -\frac{\omega_{ii}}{2} 
+    \left\| Y_i - \sum_{j \neq i} \gamma_{ij}(X) \odot Y_j 
+    \right \|^2 
+    \right]
+    \right\} \times \nonumber \\ 
+    & \prod_{i=1}^p \prod_{j \neq i}^p \prod_{l=1}^q \left\{\left(\frac{1}{\tau_{il}}\right)^{-\frac{1}{2}} 
+    \text{exp} \left[-\frac{\tau_{il}}{2}(b_{ijl})^2 \right] \left(\pi_{ijl}\right)^{s_{ijl}}
+    \left(1-\pi_{ijl}\right)^{1-s_{ijl}}
+    \right\} \times
+    \nonumber \\
+    &\prod_{i=1}^p \prod_{l=1}^q
+    \left\{
+    \left(\tau_{il}
+    \right) ^ {a_\tau-1} 
+    \text{exp}\left[
+    -b_\tau \tau_{il}
+    \right]
+    \right\} \times
+    \nonumber \\
+    &\prod_{i=1}^p \prod_{j \neq i}^p \prod_{l=1}^q\left\{
+    \left(\pi_{ijl}\right)^{a_\pi-1}
+    \left(1-\pi_{ijl}\right)^{b_\pi-1}
+    \right\} 
+\end{align}
+
+\begin{align}
+    \text{log} p(\boldsymbol{\theta,Y,X}) = &\text{Const}+ 
+    \sum_{i=1}^p \left\{ \frac{n}{2} \text{log}(\omega_{ii}) - \frac{\omega_{ii}}{2} \left\| Y_i + \frac{1}{\omega_{ii}} \sum_{j \neq i}^p \sum_{l=1}^q b_{ijl} s_{ijl} X_l \odot Y_j \right \|^2
+    \right\} \nonumber \\
+    &+ \sum_{i=1}^p \sum_{l=1}^q 
+    \left\{
+    \left(
+    \frac{p-1}{2} + a_\tau-1
+    \right) \text{log}(\tau_{il}) - 
+    \left(
+    b_\tau + \frac{1}{2}\sum_{j \neq i}^p
+    \left(
+    b_{ijl}
+    \right)^2
+    \right) \tau_{il}
+    \right\} \nonumber \\
+    &+ \sum_{i=1}^p \sum_{j \neq i}^p \sum_{l=1}^q 
+    \left\{
+    \left(
+    s_{ijl} + a_\pi -1
+    \right)\text{log}(\pi_{ijl}) + 
+    \left(
+    b_\pi-s_{ijl}
+    \right)
+    \text{log}(1-\pi_{ijl})
+    \right\}. 
+\end{align}
+
+Due to the dependence between \(\boldsymbol{b}\) and \(\boldsymbol{s}\) \citep{titsias2011spike}, the mean-field assumption is considered as:
+\[q_{\text{vb}}(\boldsymbol{b,s,\omega,\pi,\tau}) = q_{\text{vb}}(\boldsymbol{b,s})q_{\text{vb}}(\boldsymbol{\omega})q_{\text{vb}}(\boldsymbol{\pi})q_{\text{vb}}(\boldsymbol{\tau}).\]
+
+We can obtain the update equation for each parameter as \(q^{k}_{\text{vb}}(\boldsymbol{\theta_k}) \propto \text{ exp } \left[ \mathbb{E}_{-k} (\text{ log }p(\boldsymbol{\theta,Y,X})) \right]\).
+
+\textbf{a. Update of} \(\tau_{il}\):
+\begin{align}
+    \text{log} \ q_{\text{vb}}(\tau_{il}) &= \mathbb{E}_{-\tau_{il}} (l) \nonumber\\
+    &= C + 
+    \left[
+    \frac{p-1}{2}+a_\tau-1
+    \right] \text{log} \tau_{il} + 
+    \left[
+    b_\tau + \frac{1}{2}\sum_{j \neq i}^p
+    \mathbb{E}_{-\tau_{il}}
+    \left(
+    b_{ijl}
+    \right)^2
+    \right] \tau_{il}.
+\end{align}
+
+\[q_{\text{vb}}(\tau_{il}) \sim \Gamma \left(a_\tau + \frac{p-1}{2}, b_\tau + \frac{1}{2}\sum_{j \neq i}^p
+    \mathbb{E}_{-\tau_{il}}\left(
+    b_{ijl}
+    \right)^2
+    \right)\]
+
+\textbf{b. Update of} \(\pi_{ijl}\):
+\begin{align}
+    \text{log} \ q_{\text{vb}}(\pi_{ijl}) 
+    &= \mathbb{E}_{-\pi_{ijl}} (l) \nonumber \\
+    &= C+ 
+    \left[
+    \mathbb{E}_{-\pi_{ijl}}(s_{ijl})+a_\pi-1
+    \right] \text{log}(\pi_{ijl}) +
+    \left[
+    b_\pi - \mathbb{E}_{-\pi_{ijl}}(s_{ijl})
+    \right] \text{log}(1-\pi_{ijl}). 
+\end{align}
+
+\[q_{\text{vb}}(\pi_{ijl}) \sim \text{Beta} \left(\mathbb{E}_{-\pi_{ijl}}(s_{ijl})+a_\pi, b_\pi - \mathbb{E}_{-\pi_{ijl}}(s_{ijl}) +1 \right)\]
+
+\textbf{c.~Update} \(\omega_{ii}\):
+\begin{align}
+\text{log} \ q_{\text{vb}}(\omega_{ii}) 
+&= \mathbb{E}_{-\omega_{ii}}(l) \nonumber \\
+&= C+
+\frac{n}{2} \text{log}(\omega_{ii}) -\frac{\|Y_i\|^2}{2} \omega_{ii} - \frac{\mathbb{E}_{-\omega_{ii}}\|\sum_{j \neq i}^p \sum_{s=1}^q b_{ijl}s_{ijl}
+X_l \odot Y_j\|^2}{2} \left( \frac{1}{\omega_{ii}} \right).
+\end{align}
+
+\[q_{\text{vb}}(\omega_{ii}) \sim \text{GIG} \left(\frac{n+2}{2},\|Y_i\|^2,
+\mathbb{E}_{-\omega_{ii}}\|\sum_{j \neq i}^p \sum_{s=1}^q b_{ijl}s_{ijl}
+X_l \odot Y_j\|^2 \right)\]
+Here \textbf{GIG} represents generalized inverse Gaussian distribution.
+
+\textbf{d.~Update} \(\beta_{ijl} = b_{ijl}s_{ijl}\):
+
+\(\text{We Denote } M_{-(m,n)}^{-k} = \sum_{j \neq m }^p \sum_{s=1 }^q b_{mj}^s s_{mj}^s X_s \odot Y_j - b_{mn}^{(k)} s_{mn}^{(k)} X_k \odot Y_n\) and
+\begin{align}
+\text{log} \ q_{\text{vb}}(b_{ijl}|s_{ijl}) 
+&= \mathbb{E}_{-b_{ijl}|s_{ijl}}(l) \nonumber \\
+&= C-\frac{1}{2} 
+\left[
+\mathbb{E}_{-b_{ijl}|s_{ijl}}(\tau_{il}) + \mathbb{E}_{-b_{ijl}|s_{ijl}} \left( \frac{1}{\omega_{ii}} \right) s_{ijl} \|X_l \odot Y_j \|^2
+\right]
+\left(b_{ijl}
+\right)^2 \nonumber \\
+&-\left[Y_i+\mathbb{E}_{-b_{ijl}|s_{ijl}} \left( \frac{1}{\omega_{ii}} \right)\mathbb{E}_{-b_{ijl}|s_{ijl}}M_{-(i,j)}^{-s}
+\right]^T
+\left[X_l \odot Y_j
+\right] s_{ijl} b_{ijl}.
+\end{align}
+
+\[q_{\text{vb}}(b_{ijl}|s_{ijl}) \sim \mathbb{N} \left(\mu(s_{ijl}),\sigma^2(s_{ijl})\right)\]
+\[\sigma^2(s_{ijl}) = \left[
+\mathbb{E}_{-b_{ijl}|s_{ijl}}(\frac{1}{\omega_{ii}})\|X_l \odot Y_j\|^2 s_{ijl} + \mathbb{E}_{-b_{ijl}|s_{ijl}}(\tau_{il}) \right]^{-1}\]
+
+\[\mu(s_{ijl}) = - \sigma^2(s_{ijl})
+\left\{
+\left[Y_i + \mathbb{E}_{-b_{ijl}|s_{ijl}}
+\left(\frac{1}{\omega_{ii}} M_{-(i,j)}^{-s}
+\right)
+\right]^T
+[Z_s \odot Y_j]  s_{ijl}
+\right\}\]
+
+The mariginal density of \(q_{\text{vb}}(s_{ijl})\) is obtained by integrating the joint density of \(q_{\text{vb}}(b_{ijl},s_{ijl})\) as
+\begin{align*}
+\begin{split}
+& q_{\text{vb}}(s_{ijl}) = \int \text{exp} \left\{ \text{log} \ q_{\text{vb}}(b_{ijl},s_{ijl}) \right\}db_{ijl} \\
+& = \text{exp} \left\{
+    s_{ijl} \ \mathbb{E}_{-s_{ijl}} \text{logit}(\pi_{ijl})\right\}\ \int \mathbb{N}_{b_{ijl}}
+    \left(\mu(s_{ijl}),\sigma^2(s_{ijl})\right) \sigma(s_{ijl}) 
+    \text{exp } \left(
+    \frac{\mu^2(s_{ijl})}{2\sigma^2(s_{ijl})}\right) db_{ijl} \\
+& = \sigma(s_{ijl})
+    \text{exp} \left\{
+    s_{ijl} \ \mathbb{E}_{-s_{ijl}} \text{logit}(\pi_{ijl}) + \left(
+    \frac{\mu^2(s_{ijl})}{2\sigma^2(s_{ijl})}\right)
+    \right\}. \\
+& \text{log} [q_{\text{vb}}(s_{ijl})] =
+    C + \text{log}(\sigma(s_{ijl})) +
+    s_{ijl} \ \mathbb{E}_{-s_{ijl}} \text{logit}(\pi_{ijl}) + 
+    \frac{\mu^2(s_{ijl})}{2\sigma^2(s_{ijl})}  \\    
+& \text{log} [q_{\text{vb}}(s_{ijl}=0)] = C - \frac{1}{2} \text{log} \mathbb{E}_{-s_{ijl}}\tau_{ijl} \\
+& \text{log} [q_{\text{vb}}(s_{ijl}=1)] = C +\mathbb{E}_{-s_{ijl}} \text{logit}(\pi_{ijl})
+- \frac{1}{2} \text{log} \left[\mathbb{E}_{-s_{ijl}}(\frac{1}{\omega_{ii}})\|X_l \odot Y_j\|^2 + \mathbb{E}_{-s_{ijl}}(\tau_{il}) \right] \\
+& + \frac{1}{2}\left[\mathbb{E}_{-s_{ijl}}(\frac{1}{\omega_{ii}})\|X_l \odot Y_j\|^2 + \mathbb{E}_{-s_{ijl}}(\tau_{il}) \right]^{-1}\left[(X_l \odot Y_j)^T (Y_i + \mathbb{E}_{-s_{ijl}} \left(\frac{1}{\omega_{ii}}\right) \mathbb{E}_{-s_{ijl}} M_{-(i,j)}^{-s}) \right]^2
+\end{split}
+\end{align*}
+
+\begin{equation*}
+\begin{split}
+& s_{ijl} \sim \text{Ber}(\psi_{ijl}) \\
+& \text{log} \ q_{\text{vb}}(s_{ijl}) = C + s_{ijl}\text{logit}(\psi_{ijl}) \\
+& \psi_{ijl} = \mathbb{E}_{-s_{ijl}} \text{logit}(\pi_{ijl}) - \frac{1}{2}log\left[
+\mathbb{E}_{-s_{ijl}}(\frac{1}{\omega_{ii}})\|X_l \odot Y_j\|^2 + \mathbb{E}_{-s_{ijl}}(\tau_{il}) \right] + \frac{1}{2}log \mathbb{E}_{-s_{ijl}} \tau_{il} \\
+&+ \frac{1}{2}\left[
+\mathbb{E}_{-s_{ijl}}(\frac{1}{\omega_{ii}})\|X_l \odot Y_j\|^2 + \mathbb{E}_{-s_{ijl}}(\tau_{il}) \right]^{-1}\left[
+(X_l \odot Y_j)^T (Y_i + \mathbb{E}_{-s_{ijl}}\left[\frac{1}{\omega_{ii}}\right] \mathbb{E}_{-s_{ijl}} M_{-(i,j)}^{-s})
+\right]^2 \\
+\end{split}
+\end{equation*}
+
+\hypertarget{GraphElbo}{%
+\section{Evidence lower bound (ELBO)}\label{GraphElbo}}
+
+As shown previously, the evidence lower bound is defined as:
+
+\begin{equation*}
+\begin{split}
+L[q_{\text{vb}}(\boldsymbol{\theta})] &= \int q_{\text{vb}}(\boldsymbol{\theta}) \text{log} \left ( p(\boldsymbol{\theta,Y,X}) / q_{\text{vb}}(\boldsymbol{\theta}) \right)d\boldsymbol{\theta} \\
+& = \mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})}
+\text{ log}(p(\boldsymbol{\theta,Y,X})) 
+- \mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\boldsymbol{\theta})] \\
+& = \mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})}
+\text{ log}(p(\boldsymbol{\theta,Y,X})) 
+- \sum_{i=1}^p \mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\omega_{ii})]
+- \sum_{i=1}^p \sum_{l=1}^q \mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\tau_{il})] \\
+& - \sum_{i=1}^p \sum_{j \neq i}^p \sum_{l=1}^q 
+\left\{
+\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(b_{ijl},s_{ijl})] + 
+\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\pi_{ijl})]
+\right\}.
+\end{split}
+\end{equation*}
+Notably, \(-\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\omega_{ii})] , -\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\tau_{il})], -\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(b_{ijl},s_{ijl})], -\mathbb{E}_{q_{\text{vb}}(\boldsymbol{\theta})} [q_{\text{vb}}(\pi_{ijl})]\) are entropies of GIG, Gamma, Normal, Bernoulli and Beta distributions, which have a close form. We denote entropy as \(H(\cdot)\) and all the expectations below are taken w.r.t \(q_{\text{vb}}(\boldsymbol{\theta})\).
+
+\textbf{a. Derivation of} \(\mathbb{E} \text{ log}(p(\boldsymbol{\theta,Y,X}))\):
+
+\begin{align*}
+\begin{split}
+\mathbb{E} \text{ log}(p(\boldsymbol{\theta,Y,X})) 
+= & \sum_{i=1}^p 
+\biggl \{
+-\frac{n + (p-1)q}{2} \text{log} 2\pi
++ q \left[
+a_\tau \text{log}b_\tau -  \text{log} \Gamma(a_\tau)
+\right]  \\
+& + (p-1)q \left[
+ \text{log} \Gamma(a_\pi + b_\pi)
+ -\text{log} \Gamma(a_\pi b_\pi)
+\right] \\ 
+& + \frac{n}{2} \mathbb{E}(\text{log}\omega_{ii})
+-\frac{\|Y_i\|^2}{2} \mathbb{E}\omega_{ii}
+-\mathbb{E}(\omega_{ii}^{-1}) \mathbb{E}
+\left\|
+\sum_{j \neq i}^p \sum_{l=1}^q \beta_{ijl} Z_l \odot Y_j
+\right \|^2 \\
+& - Y_i^T \left(\sum_{j \neq i}^p \sum_{l=1}^q \mathbb{E} \beta_{ijl} Z_l \odot Y_j
+\right) \\
+& + \sum_{l=1}^q
+\left[
+\left(
+\frac{p-1}{2} + a_\tau-1
+\right) \mathbb{E} \left(\text{log} \tau_{il}
+\right) -
+\left(
+b_\tau + \frac{\sum_{j \neq i}^p \mathbb{E}b_{ijl}^2}{2} \right)  \mathbb{E}
+\tau_{il}
+\right] \\
+& + \sum_{j \neq i}^p \sum_{l=1}^q \left[
+\left(
+\mathbb{E}s_{ijl}+a_\pi - 1
+\right) \mathbb{E} (\text{log} \pi_{ijl}) + (b_\pi - \mathbb{E}s_{ijl})
+\right] \mathbb{E} \left(\text{log} (1-\pi_{ijl})
+\right)
+\biggl \}
+\end{split}
+\end{align*}
+
+\textbf{b. Derivation of} \(H(\tau_{il})\)
+\begin{align*}
+\begin{split}
+H(\tau_{il}) = & - \left[a_\tau+\frac{p-1}{2}\right] \text{log}\left[b_\tau + \frac{1}{2}\sum_{j \neq i} ^p\mathbb{E}b_{ijl}^2\right] + \text{log } \Gamma(a_\tau+\frac{p-1}{2}) \\
+& - \left[a_\tau+\frac{p-1}{2} -1 \right] \mathbb{E}(\text{log }\tau_{il})
++ \left[b_\tau + \frac{1}{2}\sum_{j \neq i} ^p\mathbb{E}b_{ijl}^2\right] \mathbb{E}\tau_{il}
+\end{split}
+\end{align*}
+
+\textbf{c.~Derivation of} \(H(\pi_{ijl})\)
+\begin{align*}
+\begin{split}
+H(\pi_{ijl}) = 
+& - \text{log }\Gamma(a_\pi+b_\pi+1) 
++ \text{log }
+\Gamma(\mathbb{E}s_{ijl} + a_\pi) + \text{log }
+\Gamma(b_\pi + 1 - \mathbb{E}s_{ijl}) \\
+& - (\mathbb{E}s_{ijl} + a_\pi -1) \mathbb{E} \text{log } \pi_{ijl}
+- (b_\pi - \mathbb{E}s_{ijl}) \mathbb{E} \text{log } (1-\pi_{ijl})
+\end{split}
+\end{align*}
+
+\textbf{d.~Derivation of} \(H(\omega_{ii})\)
+
+Denote \(a_{\omega_{ii}} = \|Y_i\|^2\) and \(b_{\omega_{ii}} = \mathbb{E}\|\sum_{j \neq i}^p \sum_{l=1}^q \beta_{ijl} Z_l \odot Y_j\|^2\)
+
+\[H(\omega_{ii}) = -\frac{n+2}{4} \text{log}\frac{a_{\omega_{ii}}}{b_{\omega_{ii}}} + \text{log}(2K_{(n+2)/2}\sqrt{a_{\omega_{ii}} b_{\omega_{ii}}}) -\frac{n}{2}\mathbb{E}(\text{log}\omega_{ii})+ \frac{a_{\omega_{ii}}}{2}\mathbb{E}\omega_{ii} + \frac{b_{\omega_{ii}}}{2}\mathbb{E}\omega_{ii}^{-1}\]
+
+\textbf{e. Derivation of} \(H(b_{ijl}, s_{ijl})\)
+\[H(b_{ijl}, s_{ijl}) = H(b_{ijl}|s_{ijl}) + H(s_{ijl})\]
+where
+\[H(b_{ijl}|s_{ijl}) = \frac{1}{2} \text{log} \left[2\pi\sigma^2(s_{ijl})\right] + \frac{1}{2}\]
+
+\[H(s_{ijl}) = -\psi_{ijl} \text{ log}(\psi_{ijl}) - (1-\psi_{ijl}) \text{ log}(1-\psi_{ijl})\]
+
+Combining all the previous entropy derivations, we have the following expression of evidence lower bound (ELBO) as
+\begin{align*}
+\begin{split}
+L[q_{\text{vb}}(\boldsymbol{\theta})] =
+& -\frac{np + p(p-1)q}{2} \text{log} 2\pi \\
+& + p q \left[
+a_\tau \text{log}b_\tau -  \text{log} \Gamma(a_\tau)
++ \text{log} \Gamma(a_\tau + \frac{p-1}{2})
+\right] 
+\\
+& + p(p-1)q \left[
+ \text{log} \Gamma(a_\pi + b_\pi)
+ -\text{log} \Gamma(a_\pi b_\pi)
+ -\text{log} \Gamma(a_\pi+b_\pi+1)
+\right] \\
+& - \sum_{i=1}^p 
+\left\{
+Y_i^T \left(
+\sum_{j \neq i}^p \sum_{l=1}^q \mathbb{E} \beta_{ijl} Z_l \odot Y_j
+\right)
+- \frac{n+2}{4} \text{log}\frac{a_{\omega_{ii}}}{b_{\omega_{ii}}} + \text{log}(2K_{(n+2)/2}\sqrt{a_{\omega_{ii}} b_{\omega_{ii}}})
+\right\} \\
+&- \left[a_\tau+\frac{p-1}{2}\right] 
+\sum_{i=1}^p \sum_{l=1}^q 
+\left\{
+\text{log}\left[b_\tau + \frac{1}{2}\sum_{j \neq i} ^p\mathbb{E}b_{ijl}^2\right]
+\right \} \\
+&+ \sum_{i=1}^p \sum_{j \neq i}^p \sum_{l=1}^q \biggl \{ 
+\text{log }
+\Gamma(\mathbb{E}s_{ijl} + a_\pi) + \text{log }
+\Gamma(b_\pi + 1 - \mathbb{E}s_{ijl}) \\
+&+ \frac{1}{2} \text{log} \left[2\pi\sigma^2(s_{ijl})\right] + \frac{1}{2} -\psi_{ijl} \text{ log}(\psi_{ijl}) - (1-\psi_{ijl}) \text{ log}(1-\psi_{ijl})
+\biggl \}.
+\end{split}
+\end{align*}
+
+\hypertarget{GraphRcompare}{%
+\section{Overview of competing methods}\label{GraphRcompare}}
+
+Here we only consider methods which allows for multiple graphical models or covariate-dependent graphs for individual. The GraphR model \eqref{eq:graph-reg} estimates covariate-dependent graphs based on Gaussian likelihood with incorporation of discrete and/or continuous variables which encode heterogeneity of samples. Mean-field Variational Bayesian (MFVB) algorithm is implemented in the GraphR in order to achieve computational efficiency. The FGL, GGL \citep{danaher2014joint} and LASICH \citep{saegusa2016joint} can only be used in group-specific settings. The Gaussian graphical regression model proposed by \citet{zhang2022high} apply penalized likelihood functions for the inference which allows scenarios for both multiple graphical models and individual covariate-dependent graphs. However those methods fail to provide measurements of uncertainty and probabilistic reasoning. \citet{peterson2015bayesian} propose a Bayesian model for multiple graphical models and implemented a MCMC based method. \citet{wang2021bayesian} and \citet{ni2019bayesian} also develop methods to estimate conditional dependencies as a function of individual-level or group-level covariates in directed or undirected graphs. However both methods apply MCMC based algorithm and thus fail to scale with high dimensional data set. The Table below summerizes the comparison among these methods.
+
+Frequentist or Bayesian
+
+Multiple graphical models
+
+Covariate-dependent graphs
+
+Scalability
+
+Uncertainty quantification
+
+GraphR
+
+Bayesian
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+FGL, GGL \citep{danaher2014joint}
+
+Frequentist
+
+\(\checkmark\)
+
+x
+
+\(\checkmark\)
+
+x
+
+LASICH \citep{saegusa2016joint}
+
+Frequentist
+
+\(\checkmark\)
+
+x
+
+\(\checkmark\)
+
+x
+
+\citet{zhang2022high}
+
+Frequentist
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+x
+
+\citet{peterson2015bayesian}
+
+Bayesian
+
+\(\checkmark\)
+
+x
+
+x
+
+\(\checkmark\)
+
+\citet{ni2019bayesian}
+
+Bayesian
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+x
+
+\(\checkmark\)
+
+\citet{wang2021bayesian}
+
+Bayesian
+
+\(\checkmark\)
+
+\(\checkmark\)
+
+x
+
+\(\checkmark\)
+
+\label{tab:differentmodeloverviewqsn4} Methodological comparison among different methods.
+
+\hypertarget{simulation}{%
+\chapter{Simulation studies}\label{simulation}}
+
+In this Section, we provide more simulation results for undirected (Section \ref{undir}) and directed (Section \ref{dir}) scenarios with different parameters settings such as: sample size \((n)\), number of nodes \((p)\), number of external covariates \((q)\), type of external covariates, connection probability \((\pi)\), regression coefficients of external covariates \((\beta)\) and etc. We further discuss the simulation study for illustration of Simpson's paradox in Gaussian graphical models in Section \ref{simpson}.
+
+\hypertarget{undir}{%
+\section{Undirected graphical models}\label{undir}}
+
+\textbf{Metrics for comparison:} We use the following measures to compare with other methods (I) true positive rate (TPR); (II) false positive rate (FPR); (III) false discovery rate (FDR); (IV) Matthews correlation coefficient (MCC); (V) the area under the receiver operating characteristic (ROC) curve (AUC). MCC \citep{matthews1975comparison} measures the quality of binary classification, ranging from +1 (perfect classification) to -1 (total mismatch).
+
+\textbf{Comparative methods:} We compare the GraphR method with the following methods (I) Bayesian Gaussian graphical models (BGGM, \citet{mohammadi2015bayesian}) (II) graphical lasso (GLASSO, \citet{friedman2008sparse}) (III) fused graphical lasso (FGL, \citet{danaher2014joint}) (IV) group graphical lasso (GGL, \citet{danaher2014joint}) (V) Laplacian shrinkage for inverse covariance matrices from heterogeneous populations (LASICH, \citet{saegusa2016joint}) (VI) kernel graphical lasso (K-GLASSO, \citet{liu2010graph}).
+
+We run BGGM for 10,000 iterations and discard the first 5,000 as burn-in. The tuning parameters of GLASSO is selected based on a stability approach \cite{liu2010stability}. For FGL, GGL, k-GLASSO and LASICH, approximated Akaike Information Criterion (AIC) is used for the choice of tuning parameters. We set the hyperparameters for the GraphR method as \(a_\tau = 0.005, b_\tau = 0.005, a_\pi = 1, b_\pi =4\).
+
+\hypertarget{simhomo}{%
+\subsection{Homogeneous cases}\label{simhomo}}
+
+\textbf{Simulation design:}
+We assume that all individuals are homogeneous, implying \(\Omega_n = \Omega\), \(\forall\) \(n \in \{1,...,151\}\). We only include one constant effect in the external covariate, and generate data as following:
+
+\begin{enumerate}
+\def\labelenumi{(\Roman{enumi})}
+\item
+  Generate a Erdős--Rényi graph G by setting connection probability 2\%. If the edge \(\{i,j\}\) are connected in G, then the corresponding off-diagonal entries \(\omega_{ij} = \omega_{ji}\) are uniformly drawn from \([-1,-0.5] \cup [0.5,1]\) otherwise \(\omega_{ij}\) are set to be 0. The diagonal entries \(\omega_{ii}\) are set to be 1.
+\item
+  The simulated \(\Omega\) from \eqref{eq:graph-reg} is not necessarily to be positively definite, and thus we will add \(0.1I_{33}\) to \(\Omega\) until it is positively definite.
+\item
+  Generate 151 independent observations from \(N(0, \Omega^{-1})\) and set external covariates to be intercept only.
+\end{enumerate}
+
+We fix the simulation parameters as \(n = 151\), \(p = 33\), \(q = 1\) (intercept only model), \(\pi\) = 5\%.
+
+\textbf{Selection performance:}
+Figure \ref{fig:homosele} shows the selection performance of GraphR and comparison methods by using mean values of AUC, MCC, TPR, FPR and FDR based on 50 repetitions. GraphR performs better than GLASSO except for TPR. BGGM performs marginally better than GraphR in the homogeneous setting. GraphR produces marginally better or at par with reduced level of TPR.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.7\linewidth]{images/homo_pr5}
+
+\}
+
+\textbackslash caption\{Selection Performance in homogenuous setting for 5\% sparsity level.\}\label{fig:homosele}
+\textbackslash end\{figure\}
+
+\textbf{Computation time:}
+Figure \ref{fig:homotime} shows the mean of computation time in seconds for GraphR and other competitive methods with different levels pf sparsity. The results are based on 50 replications. GraphR is significantly faster than BGGM since GraphR is VB based algorithm whereas BGGM is based on Markov Chain Monte Carlo (MCMC). The frequentist method GLASSO is computationally efficient than GraphR but GLASSO is unable to do the uncertainty quantification.
+
+\textbackslash begin\{figure\}
+
+\{\centering \includegraphics[width=0.7\linewidth]{images/homo_time}
+
+\}
+
+\textbackslash caption\{Computation times for homogenuous setting with sparsity level at 2\% and 5\%.\}\label{fig:homotime}
+\textbackslash end\{figure\}
+
+\textbf{Summary:} By design GraphR method is favorable for heterogeneous settings. For the homogeneous setting, GraphR outperforms the frequentist method GLASSO and marginally similar performance with the Bayesian method BGGM at the cost of reduced FDR level. GraphR is computationally efficient than Bayesian methods. The method produces better efficacy rates while enabling uncertainty quantification unlike the frequentist methods.
+
+\hypertarget{simgroupspec}{%
+\subsection{Group specific cases}\label{simgroupspec}}
+
+\textbf{Simulation design:}
+The samples are evenly classified into \(q\) groups, and each sample has \(q\) discrete external covariates, indicating the group allocations. Graphs for different groups are generated as following:
+
+\begin{enumerate}
+\def\labelenumi{(\Roman{enumi})}
+\item
+  Graph of the first group \(G_1\) is obtained from a Erdos-Renyi graphs with connection probability being \(\pi\).
+\item
+  \(G_q\) is constructed by randomly excluding three existing edges and including three new edges from \(G_{q-1}\) for \(q \geq 2\).
+\item
+  The precision matrices and observations in three groups are generated in the same way as step (II) in the homogeneous case.
+\end{enumerate}
+
+We \textbf{fix} the simulation parameters \(n = 151\), \(p = 33\) and \textbf{vary} (I) \(q = 2\) (two group indicators) or \(q = 3\) (three group indicators); (II) \(\pi\) = 2\% or 5\%.
+
+\textbf{Selection performance:}
+Figure \ref{fig:groupsele} shows the selection performance of GraphR and comparison methods with respect to group-specific graphs (groups 2 and 3) with different sparsity levels (2\% and 5\%). Mean values of AUC, MCC, TPR, FPR and FDR based on 50 repetitions are reported. The GraphR method performs the best in terms of MCC while producing very similar performance for TPR like other methods under all the simulation settings mentioned in the simulation design. The proposed method takes a hit on TPR to produce the lowest FDR and FPR than any other methods for all the simulation settings.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/group_specific_supp} 
+
+}
+
+\caption{Selection Performance in group-specific setting with varying number of groups and sparsity.}\label{fig:groupsele}
+\end{figure}
+
+\textbf{Computation time:}
+Figure \ref{fig:grouptime} shows the mean of computation time in seconds for GraphR and other competing methods w.r.t. 50 replications along with different groups and sparsity levels. GraphR is more computationally efficient than LASICH for all the settings. The LASSO based methods (FGL and GGL) are marginally faster than GraphR but those methods are unable to quantify uncertainty.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/group_time} 
+
+}
+
+\caption{Computation time(s) in group-specific setting with varying number of groups and varying sparsity.}\label{fig:grouptime}
+\end{figure}
+
+\textbf{Summary:} For the group-specific settings, GraphR has marginally similar performance with three comparison methods in terms of AUC. However, in case of other overall performance indicator MCC, GraphR outperforms all other methods. Though GraphR is inferior to comparison methods in TRP, FDR and FPR for GraphR is much lower, which can be viewed as a trade-off. GraphR is also computationally efficient with \(<2.5\)s computation time on average for all cases.
+
+\hypertarget{simcont}{%
+\subsection{Individual-specific cases}\label{simcont}}
+
+\textbf{Simulation design:}
+Data are generated based on the assumed model by introducing two continuous external covariates and one intercept. (I) For \(i < j\), 2\% of coefficients for continuous external covariates \(\beta_{ijl}\) are uniformly chose from -1 or 1 while others are set to be 0. Let the corresponding \(\beta_{jil}\) equal to \(\beta_{ijl}\). Two continuous external covariates are drawn from Uniform \((-1,1)\). We constructe an individual-specific precision matrix \(\Omega_n\) by fixing the diagonal entries \(\omega_{ii}\) to be 1 and calculating \(\omega_{nij} = \sum_{l=1}^2\beta_{nijl}X_{nl}\). (II) Repeat step (I) until \(\Omega_n\) is positive definite for all \(n\). (III) Generate \(y_n\) from \(N(0, \Omega_n^{-1})\).
+
+We set the parameters as \(n = 151\), \(p = 33\), \(q = 2 + 1\) (intercept), \(\pi\) = 2\%.
+
+\textbf{Computation time: }
+Figure \ref{fig:conttime} shows the mean of computation time in seconds of GraphR and comparison methods by based on 50 repetitions.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.5\linewidth]{images/cont_time} 
+
+}
+
+\caption{Computation time(s) in  individual-specific Case.}\label{fig:conttime}
+\end{figure}
+
+\textbf{Summary:} Consistent with previous findings, GraphR is computationally efficient than BGGM and k-GLASSO, though takes more computation time than GLASSO. However GLASSO cannot accommodate for heterogenous settings and provide probabilistic reasoning.
+
+\hypertarget{dir}{%
+\section{Directed acyclic graphs (DAGs)}\label{dir}}
+
+Here we consider a special case of our GraphR where directions of edges are pre-assumed, leading to a directed acyclic graph model. Three simulation settings are discussed here to illustrate the performance the GraphR method in case of variable selection and scalability for moderate and/or large number of nodes (p) and external covariates (q).
+
+\textbf{Simulation design:}
+Data is generated as following:
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  Based on the proposed types of external covariates, we generate continuous external covariates from Uniform(0,1) and discrete external covariates from Bernoulli(0.5). In the settings with large number of external covariates, 70\% of external covariates are set to be continuous.
+\item
+  For each external variables, 2\% second layer of regression coefficients \(\beta_{ij}^{(k)}\) are randomly selected to be non-zero and are set to be 3 when \(i > j\).
+\item
+  The first node (\(i=1\)) is generated from \(N(0,1)\). In terms of \(i^{th}\) node \(Y_i\) (\(i \geq 2\)), we standardize \(Y_j\) for all \(j < i\), and denote these standardized nodes as \(\tilde{Y_j}\). Draw \(Y_i\) from Normal distribution with mean being \(\sum_{j<i}\left[(\beta_{ij}^{(1)}Z^{(1)} + \beta_{ij}^{(2)}Z^{(2)}) \odot \tilde{Y_j} \right]\) and standard deviation being 1.
+\end{enumerate}
+
+We use the same 5 metrics (TPR, FPR, FDR, MCC, AUC) to compare across multiple settings and set the hyperparameters \(a_\tau = 0.005, b_\tau = 0.005, a_\pi = 1, b_\pi =1\). The probability cutoff is selected to control the Bayesian FDR at 1\%.
+
+\hypertarget{moderate}{%
+\subsection{Moderate dimensions}\label{moderate}}
+
+\textbf{Simulation parameters:}
+We \textbf{fix} the simulation parameters \(p = 50\), \(q = 2\), \(\pi\) \(= 2\%\) and \textbf{vary} the ratio \(n/pq = 1,2,3,4,5\) and type of external covariates (discrete/continuous).
+
+\textbf{Selection performance:}
+Figure \ref{fig:modext} shows the selection performance of external covariates for the GraphR method in DAG where number of nodes and external covariates are moderate. Each column of the panel indicates types of external covariates while each row represent magnitude of \(\beta\). Mean values and 95\% confidence interval (CI) of AUC, MCC, TPR, FPR and FDR based on 50 repetitions are reported.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/moderate_ext} 
+
+}
+
+\caption{Selection performance in terms of external covariates in directed acyclic graphs with moderate setting.}\label{fig:modext}
+\end{figure}
+
+Figure \ref{fig:modnode} shows the edge selection performance of GraphR in the DAG setting where number of nodes and external covariates are moderate. All other settings are same as \ref{fig:modext}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/moderate_node} 
+
+}
+
+\caption{Selection performance in terms of edges in directed acyclic graphs with moderate setting.}\label{fig:modnode}
+\end{figure}
+
+The selection performance of GraphR in terms of external covariates and edges is generally better with increasing effect size (\(\beta\)) and ratio between \(n\) and \(pq\). However when \(n/pq\) ratio is 5, FDR has is slightly larger than the case when \(n/pq\) ratio is 3 or 4, leading to decrease in MCC. One of the potential reason is that estimates are local optimum. Moreover, GraphR tended to perform slightly better with more discrete continuous external covariates when \(n/pq\) is not large enough.
+
+\textbf{Computation times: }
+Figure \ref{fig:modtime} shows the mean and 95\% CI of computation time in seconds for GraphR with different types of external covariates and \(n/pq\) ratio. Results are based on 50 repetitions. We observe an increasing pattern till the ratio is 4 and a sudden drop at 5, partly due to the fact that convergence to normality is easier to fulfilled with larger sample size.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/moderate_time} 
+
+}
+
+\caption{Computation time in directed acyclic graphs with moderate setting.}\label{fig:modtime}
+\end{figure}
+
+\hypertarget{largep}{%
+\subsection{Large number of nodes}\label{largep}}
+
+\textbf{Simulation parameters: }
+We \textbf{fix} the simulation parameters \(q = 2\), \(\pi\) \(= 2\%\) and \textbf{vary} the ratio \(n/pq = 1,2,3,5\) (i.e.~\(p=100, 200, 300, 400, 500\)), type of external covariates (discrete/continuous) and magnitude of regression coefficients (\(\beta=2,3\)).
+
+\textbf{Selection performance: }
+Figure \ref{fig:highpext} and \ref{fig:highpnode} show the selection performance of GraphR in terms of external covariates and edges in directed acyclic graphs. Number of nodes are set to be 100, 200, 300 and 500 as shown on the top of each plot. Other settings are same as \ref{fig:modext} and \ref{fig:modnode}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highp_ext} 
+
+}
+
+\caption{Selection performance in terms of external covariates in directed acyclic graphs with large number of nodes.}\label{fig:highpext}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highp_node} 
+
+}
+
+\caption{Selection performance in terms of edges in directed acyclic graphs with large number of nodes.}\label{fig:highpnode}
+\end{figure}
+
+Generally, we can observe an increasing trend in AUC, MCC and TPR and decreasing trend in FDR and FPR with larger \(n/pq\) ratio and effect size which is similar as the pattern in the moderate setting. However, there are some exception. For example when number of nodes is 500, there is a sudden jump of FDR at \(n/pq=3\) with relatively large standard deviation, which also can be reflected the decrease in MCC. This phenomena might be caused by some cases where only local optimum are found.
+
+\textbf{Computation times: }
+Figure \ref{fig:highptime} shows the mean and 95\% CI of computation time in seconds of GraphR based on 50 repetitions. Each row of panel represent types of external covariates while each column indicates the magnitude of coefficients. Number of nodes are set to be 100, 200, 300 and 500, represented by different colors. In most of the cases, longer computation times are needed when sample size and number of nodes increase.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highp_time} 
+
+}
+
+\caption{Computation time in directed acyclic graphs with large number of nodes.}\label{fig:highptime}
+\end{figure}
+
+\hypertarget{largeq}{%
+\subsection{Large number of external covariates}\label{largeq}}
+
+\textbf{Simulation parameters:} We \textbf{fix} the simulation parameters \(p = 50\), \(\pi\) \(= 2\%\), and 70\% of external covariates are set to be continuous. We also \textbf{vary} the ratio \(q = 2,5,10\), \(n/pq = 1,2,3,5\) and magnitude of regression coefficients (\(\beta=2,3\)).
+
+\textbf{Selection performance: }
+Figure \ref{fig:largeqext} and \ref{fig:largeqnode} show the selection performance of GraphR in terms of external covariates and nodes in directed acyclic graphs. Number of external covariates are set to be 2, 5 and 10 and 70\% of covariates are continuous. Other settings are same as \ref{fig:modext} and \ref{fig:modnode}.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highq_ext} 
+
+}
+
+\caption{Selection performance in terms of external covariates in directed acyclic graphs with large number of external covariates.}\label{fig:largeqext}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highq_node} 
+
+}
+
+\caption{Selection performance in terms of edges in directed acyclic graphs with large number of external covariates.}\label{fig:largeqnode}
+\end{figure}
+
+Similar as previous findings, GraphR performs better with larger \(n/pq\) ratio and effect size. Importantly, the accuracy of selection also decreases when q is relatively large, suggesting that higher \(n/pq\) is needed in order to ensure the quality of estimation.
+
+\textbf{Computation time: }
+Figure \ref{fig:HighqTime} shows the mean and 95\% CI of computation time in seconds for GraphR based on 50 repetitions. Number of external covariates are set to be 2, 5 and 10, represented by different colors.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{images/highq_time} 
+
+}
+
+\caption{Computation time in directed acyclic graphs with large number of external covariates.}\label{fig:HighqTime}
+\end{figure}
+
+Computation time increase with larger number of external covariates regardless of the effect sizes. Moreover, variability are also greater when number of external covariates are larger.
+
+\hypertarget{simpson}{%
+\section{Illustration of Simpson's paradox}\label{simpson}}
+
+\textbf{Simulation design:}
+We set overall sample size as 200, number of nodes as 3 and number of groups as 2. Samples are evenly drawn from two groups with distinct conditional independence structures. Generation of precision matrices \(\Omega,\tilde{\Omega} \in \mathbb{R}^{3 \times3}\) for the first and the second group is described as follow:
+
+\begin{enumerate}
+\def\labelenumi{(\Roman{enumi})}
+\item
+  Denote \(\Omega = [\omega_{ij}]_{3 \times 3}\). Three diagonal entries are set as 1. For off-diagonal entries, \(\omega_{12} = \omega_{21}\) are uniformly drawn from \([0.5,1]\), \(\omega_{13} = \omega_{31}\) are uniformly drawn from \([-1, -0.5]\), and \(\omega_{23} = \omega_{32}\) are set to be 0.
+\item
+  Denote \(\tilde \Omega = [\tilde \omega_{ij}]_{3 \times 3}\). Three diagonal entries are set as 1. For off-diagonal entries, \(\tilde \omega_{12} = \tilde \omega_{21}\) are uniformly drawn from \([-1, -0.5]\), \(\tilde \omega_{23} = \tilde \omega_{32}\) are uniformly drawn from \([0.5,1]\), and \(\tilde \omega_{13} = \tilde \omega_{31}\) are set to be 0.
+\end{enumerate}
+
+Repeat (I) and (II) until both \(\Omega,\tilde{\Omega}\) are positive definite matrices.
+
+Generate 100 observations from \(N(0, \Omega^{-1})\) and 100 observations from \(N(0, \tilde \Omega^{-1})\), and set external covariates to be intercept only for homogeneous case and to be group indicators for heterogeneous case.
+
+\hypertarget{PAM50}{%
+\chapter{PAM50 proteomics dataset}\label{PAM50}}
+
+\hypertarget{PAM50data}{%
+\section{Data description}\label{PAM50data}}
+
+The PAM50 \citep{parker2009supervised} proteomics dataset was obtained from The Cancer Genome Atlas (TCGA, \citet{weinstein2013cancer}) and The Cancer Proteome Atlas (TCPA,\citet{li2013tcpa}). Reverse Phase Protein Arrays (RPPAs) were used to quantify 190 proteins or phosphoproteins which were involved in apoptosis, DNA damage response, cell cycle \citep{akbani2014pan} over 859 breast cancer (BRCA) patients where normal-like BRCA patients are excluded due to small sample sizes. BRCA of Luminal A and Luminal B are combined in one category to achieve higher power which leads to three groups with 626 BRCA patients in Luminal A and B, 75 patients in Her2-enriched and 158 in Basal-like.
+
+\hypertarget{PAM50process}{%
+\section{Preprocessing and application}\label{PAM50process}}
+
+Proteomics data is standardized before applying GraphR. The indicators for cancer subtype (Luminal A+B, Her2-enriched and Basal-like breast cancers) are used as external covariates.
+
+We set hyperparameters as follows: \(a_\tau = b_\tau = 0.005,a_\pi = 1,b_\pi=4\). Notably, in case of integrated functional pathway analysis, we change the hyper-parameters: \(a_\pi = b_\pi = 0.05\). This provides us potential to consider high density of connections between proteins in the same pathway.
+
+Moreover, we here only include proteins pairs belonging to different isoforms while showing significantly strong correlation (FDR based p-values \(<0.01\) and magnitude \(\mid \rho \mid \geq 0.4\)) for at least one group, allowing plots to be more readable.
+
+\hypertarget{PAM50result}{%
+\section{Results}\label{PAM50result}}
+
+Figure \ref{fig:pampip} shows heatmap of posterior inclusion probability (PIP) of selected edges in each PAM50 subtype of BRCA.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.95\linewidth]{images/subtype_pip} 
+
+}
+
+\caption{Posterior inclusion probability (PIP) of selected edges in each PAM50 subtype of BRCA.}\label{fig:pampip}
+\end{figure}
+
+Figure \ref{fig:lumfullnet}, \ref{fig:herfullnet} and \ref{fig:basalfullnet} show networks of selected protein pairs in Luminal A+B, Her2-enriched and Basal-like BRCA respectively. The widths of edges are proportional to partial correlations. The sizes of nodes are proportional to connectivity degrees which are defined as the sum of magnitudes of the partial correlations. Sign of partial correlations are represented by color with red being positive and blue being negative.
+
+\textbf{Luminal A + B breast cancer}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/subtype_fullnet_lum} 
+
+}
+
+\caption{Network of selected protein pairs in Luminal A +  B breast cancer patients.}\label{fig:lumfullnet}
+\end{figure}
+
+\textbf{Her2-enriched breast cancer}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/subtype_fullnet_her2} 
+
+}
+
+\caption{Network of selected protein pairs in Her2-enriched breast cancer patients.}\label{fig:herfullnet}
+\end{figure}
+
+\textbf{Basal-like breast cancer}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/subtype_fullnet_basal} 
+
+}
+
+\caption{Network of selected protein pairs in Basal-like breast cancer patients.}\label{fig:basalfullnet}
+\end{figure}
+
+\hypertarget{StemnessBC}{%
+\chapter{Stemness-induced proteomics dataset}\label{StemnessBC}}
+
+\hypertarget{StemnessBCdata}{%
+\section{Data description}\label{StemnessBCdata}}
+
+The dataset comes from The Cancer Genome Atlas (TCGA, \citet{weinstein2013cancer}) and the Cancer Proteome Atlas (TCPA, \citet{li2013tcpa}), and is processed by \citet{malta2018machine} to derive two independent stemness indices based on DNA methylation (mDNAsi) and mRNA expression (mRNAsi). Aim to provide the degrees of dedifferentiation on epigenetic and gene expression level, mDNAsi and mRNAsi range from 0 to 1 with lower values implying tendency to normal-like cells. 189 protein abundance are measured across 616 breast cancer (BRCA) from TCGA \citep{weinstein2013cancer} and can be downloaded from the NIH Genomic Data Commons (GDC) \href{https://gdc.cancer.gov/about-data/publications/PanCanStemness-2018}{website}.
+
+\hypertarget{StemnessBCprocess}{%
+\section{Preprocessing and application}\label{StemnessBCprocess}}
+
+The mRNAsi, mDNAsi and patients' ages are treated as three external covariates. Logit transformation is used to the stemness indices to ensure the same scale as age, and all three external covariates and proteomics data are standardized before plugging into the model. Hyperparameters are set as previous section \ref{PAM50process}.
+
+Here we present proteomics data analysis with mDNAsi in breast cancers where mRNAsi and patients' age are set to be median, and mRNAsi related result can be found in the Result Section. For mDNAsi case, we limit the protein connections by using the following criteria
+
+\begin{enumerate}
+\def\labelenumi{(\arabic{enumi})}
+\item
+  proteins pair with different isoforms,
+\item
+  significant correlation (FDR based p-values \(<\) \(0.01\)) in more than half of the cases,
+\item
+  the magnitude of correlations exceeded \(0.2\) for at least one case.
+\end{enumerate}
+
+\hypertarget{StemnessBCresult}{%
+\section{Results}\label{StemnessBCresult}}
+
+Figure \ref{fig:mdnasipip} and \ref{fig:mdnasicor} are two heatmaps which show posterior inclusion probability (PIP) and partial correlation of selected edges with varying mDNAsi while mRNAsi and age are set to be median. The color bar on the left shows quarterly divided mDNAsi. The barplot on top represents the number of significant cases for the corresponding protein pair.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/mdna_pip} 
+
+}
+
+\caption{Posterior inclusion probability (PIP) of selected edges with varying mDNAsi and median value of mRNAsi and age.}\label{fig:mdnasipip}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/mdna_cor} 
+
+}
+
+\caption{Partial correlation of selected edges with varying mDNAsi and median value of mRNAsi and age.}\label{fig:mdnasicor}
+\end{figure}
+
+Figure \ref{fig:mdnasinet} presents networks for proteins with top five connectivity degrees corresponded to each quarter of mDNAsi. The width of edges are proportional to the median value of partial correlation between selected protein pairs for each quarter of mDNAsi. The node sizes reflects median values of connectivity degrees.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/mdna_network} 
+
+}
+
+\caption{Networks for proteins with top five connectivity degrees corresponded to each quarter of mRNAsi.}\label{fig:mdnasinet}
+\end{figure}
+
+As shown in Figure \ref{fig:mdnasiline} we also present changes of correlation along with mDNAsi of the original scale for selected protein pairs when mRNAsi and age are fixed to be median.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/dna_line} 
+
+}
+
+\caption{Line plots of selected protein pairs showing changes of correlation along with mDNAsi of the original scale.}\label{fig:mdnasiline}
+\end{figure}
+
+Finally, the results based on integrated functional analysis of pathways are shown in \ref{fig:mdnasipathway}. This plot illustrates the changing patterns of connectivity scores of pathways along with mDNAsi of the origin scale.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/mdna_cs_line} 
+
+}
+
+\caption{Changing patterns of connectivity scores for pathways along with mDNAsi of the origin scale.}\label{fig:mdnasipathway}
+\end{figure}
+
+\hypertarget{Gyne}{%
+\chapter{Gynecological and breast cancers data}\label{Gyne}}
+
+\hypertarget{Gynedata}{%
+\section{Data description}\label{Gynedata}}
+
+The Gynecological and breast cancer (Pan-gyane) proteomics dataset was obtained from The Cancer Genome Atlas (TCGA, \citet{weinstein2013cancer}) and The Cancer Proteome Atlas (TCPA, \citet{li2013tcpa}). The Pan-gyane proteomics contains four types of cancers including breast invasive carcinoma (BRCA), cervical squamous cell carcinoma and endocervical adenocarcinoma (CESC), ovarian serous cystadenocarcinoma (OV) and uterine corpus endometrial carcinoma (UCEC). Abundance of 189 kinds of protein were measured across 1,941 patients from \citet{weinstein2013cancer} among which 892 patients had BRCA, 173 had CESC, 436 had OV and 440 had UCEC.
+
+\hypertarget{Gyneprocess}{%
+\section{Preprocessing and application}\label{Gyneprocess}}
+
+All settings are same as in Section \ref{PAM50process}, except that:
+
+\begin{enumerate}
+\def\labelenumi{(\Roman{enumi})}
+\item
+  Four external covariates: indicators of BRCA, CESC, OV, UCEC are included in the analyses.
+\item
+  Significantly strong correlation is defined as connection with FDR based p-values \(<0.01\) and magnitude \(\mid \rho \mid \geq 0.4\))
+\end{enumerate}
+
+\hypertarget{Gyneresult}{%
+\section{Results}\label{Gyneresult}}
+
+Figure \ref{fig:panpip} is a heatmap which shows posterior inclusion probability (PIP) of selected edges in each type of cancer.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.9\linewidth]{images/pan_pip} 
+
+}
+
+\caption{Posterior inclusion probability (PIP) of selected edges in each type of cancer.}\label{fig:panpip}
+\end{figure}
+
+Figure \ref{fig:brcafullnet}, \ref{fig:cescfullnet}, \ref{fig:ovfullnet} and \ref{fig:ucecfullnet} show networks of selected protein pairs in BRCA, CESC, OV and UCEC respectively. All other settings are same as figure \ref{fig:lumfullnet}
+
+\textbf{BRCA}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/pan_fullnet_brca} 
+
+}
+
+\caption{Network of selected protein pairs in BRCA patients.}\label{fig:brcafullnet}
+\end{figure}
+
+\textbf{CSEC}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/pan_fullnet_cesc} 
+
+}
+
+\caption{Network of selected protein pairs in CESC patients.}\label{fig:cescfullnet}
+\end{figure}
+
+\textbf{OV}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/pan_fullnet_ov} 
+
+}
+
+\caption{Network of selected protein pairs in OV patients.}\label{fig:ovfullnet}
+\end{figure}
+
+\textbf{UCEC}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/pan_fullnet_ucec} 
+
+}
+
+\caption{Network of selected protein pairs in UCEC patients.}\label{fig:ucecfullnet}
+\end{figure}
+
+\hypertarget{ST}{%
+\chapter{Spatial transcriptomics dataset}\label{ST}}
+
+\hypertarget{STdata}{%
+\section{Data description}\label{STdata}}
+
+The human breast cancer data was collected from biopsy of breast cancer at a thickness of 16 \(\mu\)m \citep{staahl2016visualization}. Based on the Hematoxylin and Eosin (H\&E) staining image, locations can be classified into three spatial regions as tumor, intermediate, and normal with the sizes 114, 67, and 69 spots respectively. The data includes measurement of 5262 genes expression at 250 spot locations.
+
+\hypertarget{STprocess}{%
+\section{Preprocessing and application}\label{STprocess}}
+
+Here we only consider the 100 spatially expressed genes with the lowest Benjamini-Hochberg (BH) adjusted p-value by applying SPARK method \citep{sun2020statistical}. Next, we apply the PQLseq \citep{sun2019heritability} algorithm to adjust for the covariate effect and obtain the latent gene expressions which follow Normal distribution.
+
+Two coordinates are scaled and treated as external covariates in the GraphR model. Hyperparameters are set as previous section \ref{PAM50process}. We include correlations with FDR based p-values \(<0.01\) in the results.
+
+\hypertarget{STBCresult}{%
+\section{Results}\label{STBCresult}}
+
+Suppose the partial correlations between gene \(i\) and gene \(j\) and the corresponding posterior inclusion probabilities are vectors of length \(n_1+n_2+n_3\) with \(n_1,n_2,n_3\) representing number of spots in tumor, intermediate and normal region, namely
+\begin{equation}
+\begin{split}
+& \rho_{ij} = [\rho_{ij}^{tumor}, \rho_{ij}^{inter}, \rho_{ij}^{normal}] \in \mathbb{R}^{n_1+n_2+n_3}, \\
+& PIP_{ij} = [PIP_{ij}^{tumor}, PIP_{ij}^{inter}, PIP_{ij}^{normal}] \in \mathbb{R}^{n_1+n_2+n_3}.
+\end{split}
+\end{equation}
+We define weighted average of partial correlations between gene \(i\) and gene \(j\) in a region as \(\hat{\rho}_{ij}^{region}= (\sum_{region} \rho_{ij}^{region} * PIP_{ij}^{region})/n_{region}\) where region can be tumor, intermediate or normal. Weighted connectivity degree of gene \(i\) is defined as the sum of \(|\hat{\rho}_{i\cdot}|\).
+
+Figure \ref{fig:STtumornet}, \ref{fig:STinternet} and \ref{fig:STnormalnet} show networks w.r.t. each spatial regions. The edges are proportional to the weighted average of partial correlations and nodes are proportional to the weighted connectivity degrees.
+
+\textbf{Tumor region}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/location_c3_full} 
+
+}
+
+\caption{Network of tumor region in breast cancer.}\label{fig:STtumornet}
+\end{figure}
+
+\textbf{Intermediate region}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/location_c2_full} 
+
+}
+
+\caption{Network of intermediate region in breast cancer.}\label{fig:STinternet}
+\end{figure}
+
+\textbf{Normal region}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/location_c1_full} 
+
+}
+
+\caption{Network of normal region in breast cancer.}\label{fig:STnormalnet}
+\end{figure}
+
+We also display more spatial patterns of partial correlations (Figure \ref{fig:STcorloc}) and connectivity degrees (Figure \ref{fig:STdegreeloc}) for gene and gene pairs. The color bar indicates the values of correlations and connectivity degrees while shapes of point representing the spatial region.
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/supp_corr} 
+
+}
+
+\caption{Spatial pattern of partial correlations for selective gene pairs.}\label{fig:STcorloc}
+\end{figure}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/supp_degree} 
+
+}
+
+\caption{Spatial pattern of connectivity degrees of selective genes.}\label{fig:STdegreeloc}
+\end{figure}
+
+\hypertarget{ImplementGraphR}{%
+\chapter{Implementation}\label{ImplementGraphR}}
+
+The GraphR (Graphical Regression) is a flexible approach which incorporates sample heterogenity and enables covariate-dependent graphs. Our regression-based method provides a functional mapping from the covariate space to precision matrix for different types of heterogeneous graphical model settings. GraphR imposes sparsity in both edge and covariate selection and computationally efficient via use of variational Bayes algorithms. The method is versatile to incorporate different type of covariates such as
+(I) \textbf{binary} (control and disease specific graphs),
+(II) \textbf{categorical} (category specific graphs such as cancer subtypes),
+(III) \textbf{univariate continuous} (time varying graphs for single cell data),
+(IV) \textbf{categorical + univariate continuous} (graphs changing over category such as cancer sub-types and continuous scale as biomarkers),
+(V) \textbf{multivariate continuous} (spatial transcriptomics co-expression networks).
+More details about the method can found in the Methods Section of the manuscript and Section \ref{method} of the Supplementary Materials. GraphR is implemented as an open-source R package (Section \ref{GraphRpackage}) and Shiny app (Section \ref{GraphRshinyApp}).
+
+\hypertarget{GraphRpackage}{%
+\section{GraphR package}\label{GraphRpackage}}
+
+\hypertarget{installation}{%
+\subsection{Installation}\label{installation}}
+
+You can install the released version of GraphR from (\url{https://github.com/bayesrx/GraphR}) with:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{devtools}\SpecialCharTok{::}\FunctionTok{install\_github}\NormalTok{(}\StringTok{"bayesrx/GraphR"}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(GraphR)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{graphr_est-function}{%
+\subsection{GraphR\_est() function}\label{graphr_est-function}}
+
+The \textbf{GraphR\_est()} function can be used to estimate the graphical regression coefficients and inclusion probabilities of external covariates for the GraphR models. It is suggested to maintain \(n/pq >1\) and efficacy of the method increase with high values of \(n/pq\) ratio. For priors, we assume \(\pi \sim Beta(a_\pi, b_\pi)\) and \(\tau \sim \Gamma(a_\tau, b_\tau)\).
+
+The \textbf{mandatory inputs} of estimation function are given below.
+
+\begin{itemize}
+\item
+  \textbf{Features (nodes)}: Nodes of the graphs among which edges are built (e.g.~a gene expression matrix of dimensions \(n \times p\)). \textbf{Please standardize features before plugging into the function or set standardize\_feature = TRUE in the function}.
+\item
+  \textbf{Cont\_external and dis\_external (continuous and discrete external covariates)}: An \(n \times q_1\) and an \(n \times q_2\) matrices of continuous and discrete external covariates respectively. \(q_1 + q_2 =q\). \textbf{Please standardize continuous external covariates before plug into the estimation function or set standardize\_external = TRUE in the function.}
+\end{itemize}
+
+The \textbf{optional inputs} of estimation function are given below.
+
+\begin{itemize}
+\item
+  \textbf{\(\boldsymbol a_{\boldsymbol \pi}\), \(\boldsymbol b_{\boldsymbol \pi}\)}: Hyper-parameters from \(\pi \sim Beta(a_\pi, b_\pi)\). By default \(a_\pi = 1, b_\pi = 4\).
+\item
+  \textbf{\(\boldsymbol a_{\boldsymbol \tau}\), \(\boldsymbol b_{\boldsymbol \tau}\)}: Hyper-parameters from \(\tau \sim Gamma(a_\tau, b_\tau)\). By default \(a_\tau = 0.005, b_\tau = 0.005\).
+\item
+  \textbf{Standardize\_feature, standardize\_external}: Standardize features or continuous external covariates. Default as FALSE.
+\item
+  \textbf{Max\_iter}: Maximum number of iterations. Default as 2,000.
+\item
+  \textbf{Max\_tol}: Maximum tolerance. Default as 0.001.
+\end{itemize}
+
+\textbf{Outputs} of the \textbf{GraphR\_est()} function are provided below.
+
+\begin{itemize}
+\item
+  \textbf{Beta (the graphical regression coefficients)}: A \(p \times p \times q\) array of coefficients for external covariates. The \([i,j,k]\) element represents the effect of k-th external covariates on regression of j-th node on i-th node.
+\item
+  \textbf{Phi (posterior inclusion probability)}: A \(p \times p \times q\) array storing posterior inclusion probability (PIP) of external covariates. The \([i,j,k]\) elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.
+\item
+  \textbf{Omega\_diag (diagonal elements of precision matrix)}: A p vector with i-th element representing the inverse variance of error.
+\end{itemize}
+
+\hypertarget{graphr_pred-function}{%
+\subsection{GraphR\_pred() function}\label{graphr_pred-function}}
+
+The \textbf{GraphR\_pred()} function can be used to predict partial correlation between two nodes and the corresponding inclusion probabilities from the results of GraphR model alongwith Bayesian FDR-adjusted p-values.
+
+The \textbf{mandatory inputs} of prediction function are given below.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{New\_df}: A matrix of new external covariates based on which predictions are made. \textbf{Note: Please ensure that the order and scale of new external covariates are same as those used in the estimation.}
+\end{itemize}
+
+The \textbf{optional inputs} of prediction function are given below.
+
+\begin{itemize}
+\item
+  \textbf{GraphR\_est\_res}: Results from \texttt{GraphR\_est} function. If graphR\_est\_res = NULL, then the following three inputs: (1) beta; (2) phi; (3) omega\_diag are needed.
+\item
+  \textbf{Beta}: A \(p \times p \times q\) array storing coefficients of external covariates. The \([i,j,k]\) elements represents the effect of k-th external covariates on regression of j-th node on i-th node.
+\item
+  \textbf{Omega\_diag}: A p vector with i-th element representing the inverse variance of error.
+\item
+  \textbf{Pip}: A \(p \times p \times q\) array storing posterior inclusion probability (PIP) of external covariates. The \([i,j,k]\) elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.
+\end{itemize}
+
+The \textbf{output} contains following information.
+
+\begin{itemize}
+\item
+  \textbf{Feature\_id1}, \textbf{feature\_id2}: Indices of features or nodes.
+\item
+  \textbf{Pr\_inclusion}: Posterior inclusion probability of connections between two nodes based on ``And'' rules.
+\item
+  \textbf{Correlation}: Partial correlation between two nodes. Values with maximum magnitudes are provided.
+\item
+  \textbf{FDR\_p}: Bayesian FDR-adjusted p values.
+\end{itemize}
+
+\hypertarget{graphr_visualization-function}{%
+\subsection{GraphR\_visualization() function}\label{graphr_visualization-function}}
+
+The \textbf{GraphR\_visualization()} function provides a circular network based on
+a given new external covariates vector and thresholds for FDR-p values and magnitudes of partial correlations.
+
+The \textbf{mandatory inputs} of prediction function are given below.
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{New\_vec}: A vector of new external covariates based on which plot is made. \textbf{Note: Please ensure that the order and scale of new external covariates are same as those used in the estimation.}
+\end{itemize}
+
+The \textbf{optional inputs} of prediction function are given below.
+
+\begin{itemize}
+\item
+  \textbf{GraphR\_est\_res}: Results from \texttt{GraphR\_est} function. If graphR\_est\_res = NULL, then the following three inputs: (1) beta; (2) phi; (3) omega\_diag are needed.
+\item
+  \textbf{Beta}: A \(p \times p \times q\) array storing coefficients of external covariates. The \([i,j,k]\) elements represents the effect of k-th external covariates on regression of j-th node on i-th node.
+\item
+  \textbf{Omega\_diag}: A p vector with i-th element representing the inverse variance of error.
+\item
+  \textbf{Pip}: A \(p \times p \times q\) array storing posterior inclusion probability (PIP) of external covariates. The \([i,j,k]\) elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.
+\item
+  \textbf{Fdr\_thre}: A numeric value. Threshold for Bayesian FDR adjusted q-values.
+\item
+  \textbf{Magnitude\_thre}: A numeric value. Threshold for the magnitude of partial correlations.
+\end{itemize}
+
+The \textbf{output} provides a circular network plot. Node sizes represent connectivity degrees
+of the corresponding features while edge widths are proportional to the partial
+correlation between two features. Sign of the partial correlations are represented
+by the color
+
+\hypertarget{example}{%
+\section{Example}\label{example}}
+
+An example code with one of the existing datasets to demonstrate how to run the functions and obtain inference.
+
+\hypertarget{example-1}{%
+\subsection{Example}\label{example-1}}
+
+Here we provide an example to run the GraphR method with application to PAM50 protiomics data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{set.seed}\NormalTok{(}\DecValTok{100}\NormalTok{)}
+\FunctionTok{library}\NormalTok{(GraphR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: replacing previous import 'dplyr::union' by 'igraph::union' when
+## loading 'GraphR'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: replacing previous import 'dplyr::as_data_frame' by
+## 'igraph::as_data_frame' when loading 'GraphR'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: replacing previous import 'dplyr::groups' by 'igraph::groups' when
+## loading 'GraphR'
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{data}\NormalTok{(}\StringTok{"Pam50"}\NormalTok{)}
+
+\NormalTok{features }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(}\FunctionTok{apply}\NormalTok{(Pam50}\SpecialCharTok{$}\NormalTok{features,}\DecValTok{2}\NormalTok{,scale)) }
+\NormalTok{features[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{),}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{)]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      X1433EPSILON     X4EBP1 X4EBP1_pS65 X4EBP1_pT37T46    X53BP1
+## [1,]   -0.9298711 -1.0325344  -0.1814837      0.3870419 -1.125110
+## [2,]   -1.2265417 -0.8121828  -0.9249897     -0.4834352  1.084052
+## [3,]   -0.9250730 -0.1882466   0.8258123     -0.4022269  0.289943
+## [4,]   -0.6566337 -0.2473042   0.2114522      0.9897723  2.134105
+## [5,]   -0.9476849  1.7654120   2.7128204      2.1739453  1.378139
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{external }\OtherTok{\textless{}{-}} \FunctionTok{as.matrix}\NormalTok{(Pam50}\SpecialCharTok{$}\NormalTok{external)}
+\NormalTok{external[}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{),]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      basal_like her2_enriched luminal_ab
+## [1,]          0             1          0
+## [2,]          0             0          1
+## [3,]          0             0          1
+## [4,]          0             0          1
+## [5,]          0             0          1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{system.time}\NormalTok{(res }\OtherTok{\textless{}{-}} \FunctionTok{GraphR\_est}\NormalTok{(}
+\NormalTok{  features,}
+\NormalTok{  external,}
+  \AttributeTok{a\_pi =} \DecValTok{1}\NormalTok{,}
+  \AttributeTok{b\_pi =} \DecValTok{4}\NormalTok{,}
+  \AttributeTok{a\_tau =} \FloatTok{0.005}\NormalTok{,}
+  \AttributeTok{b\_tau =} \FloatTok{0.005}\NormalTok{,}
+  \AttributeTok{max\_iter =} \DecValTok{2000}\NormalTok{,}
+  \AttributeTok{max\_tol =} \FloatTok{0.001}
+\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+## 111.841  14.196 126.353
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\# prediction}
+\NormalTok{new\_df }\OtherTok{\textless{}{-}} \FunctionTok{diag}\NormalTok{(}\DecValTok{3}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(new\_df) }\OtherTok{\textless{}{-}} \FunctionTok{colnames}\NormalTok{(external)}
+
+\FunctionTok{system.time}\NormalTok{(pred }\OtherTok{\textless{}{-}} \FunctionTok{GraphR\_pred}\NormalTok{(new\_df, res))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    user  system elapsed 
+##   3.044   0.022   3.068
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(pred)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   basal_like her2_enriched luminal_ab     feature1       feature2 Pr_inclusion
+## 1          1             0          0     PKCALPHA PKCALPHA_pS657            1
+## 2          1             0          0      ERALPHA             PR            1
+## 3          1             0          0 S6_pS235S236   S6_pS240S244            1
+## 4          1             0          0          BID       STATHMIN            1
+## 5          1             0          0          YAP      YAP_pS127            1
+## 6          1             0          0        RAD51    X4EBP1_pT70            1
+##   Correlation FDR_p
+## 1   0.7938597     0
+## 2   0.4530799     0
+## 3   0.8136693     0
+## 4   0.4157183     0
+## 5   0.7698744     0
+## 6   0.3773436     0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\#\#\#\#\#\# visualization}
+\NormalTok{new\_vec }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\FunctionTok{GraphR\_visualization}\NormalTok{(new\_vec, }\AttributeTok{graphR\_est\_res =}\NormalTok{ res,}
+                     \AttributeTok{fdr\_thre =} \FloatTok{0.01}\NormalTok{, }\AttributeTok{magnitude\_thre =} \FloatTok{0.4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining with `by = join_by(feature)`
+\end{verbatim}
+
+\includegraphics{_main_files/figure-latex/unnamed-chunk-4-1.pdf}
+
+\hypertarget{GraphRshinyApp}{%
+\section{GraphR Shiny App and tutorial website}\label{GraphRshinyApp}}
+
+The Shiny App and tutorial website of GraphR can be found \href{https://bayesrx.shinyapps.io/GraphR/}{here}.
+
+\hypertarget{checkmarks}{%
+\section{Checkmarks}\label{checkmarks}}
+
+Here are a few checkmarks to follow while using the GraphR method.
+
+\begin{itemize}
+\item
+  \textbf{Please make sure to standardize continuous external covariates before plug into the estimation function.}
+\item
+  \textbf{It is suggested to maintain \(n/pq >1\) and efficacy of the method increase with high values of \(n/pq\) ratio.}
+\end{itemize}
+
+  \bibliography{packages.bib}
+
+\end{document}

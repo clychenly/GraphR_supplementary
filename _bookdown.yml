@@ -1,0 +1,10 @@
+delete_merged_file: true
+language:
+  label:
+    fig: 'Figure '
+    tab: 'Table '
+    eq: 'Equation '
+  ui:
+    edit: Edit
+    chapter_name: 'Chapter '
+  

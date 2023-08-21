@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>G Implementation | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity</title>
+  <meta name="description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  <meta name="generator" content="bookdown 0.33 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="G Implementation | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="G Implementation | Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity" />
+  
+  <meta name="twitter:description" content="This containes all the supplementary materials for the paper named Probabilistic Graphical Modeling under Heterogeneity." />
+  
+
+<meta name="author" content="Liying Chen^{1,5}, Satwik Acharyya^{1,5}, Chunyu Luo^{2,3}, Yang Ni^4 and Veerabhadran Baladandayuthapani^{1,6}" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="ST.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Probabilistic Graphical Model under Heterogeneity</a></li>
+
+<li class="divider"></li>
+<li class="appendix"><span><b>Supplementary Materials</b></span></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="A" data-path="method.html"><a href="method.html"><i class="fa fa-check"></i><b>A</b> Methodology</a>
+<ul>
+<li class="chapter" data-level="A.1" data-path="method.html"><a href="method.html#GraphRmodel"><i class="fa fa-check"></i><b>A.1</b> Model and priors</a></li>
+<li class="chapter" data-level="A.2" data-path="method.html"><a href="method.html#MFVB"><i class="fa fa-check"></i><b>A.2</b> Mean field variational Bayes</a></li>
+<li class="chapter" data-level="A.3" data-path="method.html"><a href="method.html#derivation"><i class="fa fa-check"></i><b>A.3</b> Update equations</a></li>
+<li class="chapter" data-level="A.4" data-path="method.html"><a href="method.html#GraphElbo"><i class="fa fa-check"></i><b>A.4</b> Evidence lower bound (ELBO)</a></li>
+<li class="chapter" data-level="A.5" data-path="method.html"><a href="method.html#GraphRcompare"><i class="fa fa-check"></i><b>A.5</b> Overview of competing methods</a></li>
+</ul></li>
+<li class="chapter" data-level="B" data-path="simulation.html"><a href="simulation.html"><i class="fa fa-check"></i><b>B</b> Simulation studies</a>
+<ul>
+<li class="chapter" data-level="B.1" data-path="simulation.html"><a href="simulation.html#undir"><i class="fa fa-check"></i><b>B.1</b> Undirected graphical models</a>
+<ul>
+<li class="chapter" data-level="B.1.1" data-path="simulation.html"><a href="simulation.html#simhomo"><i class="fa fa-check"></i><b>B.1.1</b> Homogeneous cases</a></li>
+<li class="chapter" data-level="B.1.2" data-path="simulation.html"><a href="simulation.html#simgroupspec"><i class="fa fa-check"></i><b>B.1.2</b> Group specific cases</a></li>
+<li class="chapter" data-level="B.1.3" data-path="simulation.html"><a href="simulation.html#simcont"><i class="fa fa-check"></i><b>B.1.3</b> Individual-specific cases</a></li>
+</ul></li>
+<li class="chapter" data-level="B.2" data-path="simulation.html"><a href="simulation.html#dir"><i class="fa fa-check"></i><b>B.2</b> Directed acyclic graphs (DAGs)</a>
+<ul>
+<li class="chapter" data-level="B.2.1" data-path="simulation.html"><a href="simulation.html#moderate"><i class="fa fa-check"></i><b>B.2.1</b> Moderate dimensions</a></li>
+<li class="chapter" data-level="B.2.2" data-path="simulation.html"><a href="simulation.html#largep"><i class="fa fa-check"></i><b>B.2.2</b> Large number of nodes</a></li>
+<li class="chapter" data-level="B.2.3" data-path="simulation.html"><a href="simulation.html#largeq"><i class="fa fa-check"></i><b>B.2.3</b> Large number of external covariates</a></li>
+</ul></li>
+<li class="chapter" data-level="B.3" data-path="simulation.html"><a href="simulation.html#simpson"><i class="fa fa-check"></i><b>B.3</b> Illustration of Simpson’s paradox</a></li>
+</ul></li>
+<li class="chapter" data-level="C" data-path="PAM50.html"><a href="PAM50.html"><i class="fa fa-check"></i><b>C</b> PAM50 proteomics dataset</a>
+<ul>
+<li class="chapter" data-level="C.1" data-path="PAM50.html"><a href="PAM50.html#PAM50data"><i class="fa fa-check"></i><b>C.1</b> Data description</a></li>
+<li class="chapter" data-level="C.2" data-path="PAM50.html"><a href="PAM50.html#PAM50process"><i class="fa fa-check"></i><b>C.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="C.3" data-path="PAM50.html"><a href="PAM50.html#PAM50result"><i class="fa fa-check"></i><b>C.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="D" data-path="StemnessBC.html"><a href="StemnessBC.html"><i class="fa fa-check"></i><b>D</b> Stemness-induced proteomics dataset</a>
+<ul>
+<li class="chapter" data-level="D.1" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCdata"><i class="fa fa-check"></i><b>D.1</b> Data description</a></li>
+<li class="chapter" data-level="D.2" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCprocess"><i class="fa fa-check"></i><b>D.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="D.3" data-path="StemnessBC.html"><a href="StemnessBC.html#StemnessBCresult"><i class="fa fa-check"></i><b>D.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="E" data-path="Gyne.html"><a href="Gyne.html"><i class="fa fa-check"></i><b>E</b> Gynecological and breast cancers data</a>
+<ul>
+<li class="chapter" data-level="E.1" data-path="Gyne.html"><a href="Gyne.html#Gynedata"><i class="fa fa-check"></i><b>E.1</b> Data description</a></li>
+<li class="chapter" data-level="E.2" data-path="Gyne.html"><a href="Gyne.html#Gyneprocess"><i class="fa fa-check"></i><b>E.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="E.3" data-path="Gyne.html"><a href="Gyne.html#Gyneresult"><i class="fa fa-check"></i><b>E.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="F" data-path="ST.html"><a href="ST.html"><i class="fa fa-check"></i><b>F</b> Spatial transcriptomics dataset</a>
+<ul>
+<li class="chapter" data-level="F.1" data-path="ST.html"><a href="ST.html#STdata"><i class="fa fa-check"></i><b>F.1</b> Data description</a></li>
+<li class="chapter" data-level="F.2" data-path="ST.html"><a href="ST.html#STprocess"><i class="fa fa-check"></i><b>F.2</b> Preprocessing and application</a></li>
+<li class="chapter" data-level="F.3" data-path="ST.html"><a href="ST.html#STBCresult"><i class="fa fa-check"></i><b>F.3</b> Results</a></li>
+</ul></li>
+<li class="chapter" data-level="G" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html"><i class="fa fa-check"></i><b>G</b> Implementation</a>
+<ul>
+<li class="chapter" data-level="G.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#GraphRpackage"><i class="fa fa-check"></i><b>G.1</b> GraphR package</a>
+<ul>
+<li class="chapter" data-level="G.1.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#installation"><i class="fa fa-check"></i><b>G.1.1</b> Installation</a></li>
+<li class="chapter" data-level="G.1.2" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_est-function"><i class="fa fa-check"></i><b>G.1.2</b> GraphR_est() function</a></li>
+<li class="chapter" data-level="G.1.3" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_pred-function"><i class="fa fa-check"></i><b>G.1.3</b> GraphR_pred() function</a></li>
+<li class="chapter" data-level="G.1.4" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#graphr_visualization-function"><i class="fa fa-check"></i><b>G.1.4</b> GraphR_visualization() function</a></li>
+</ul></li>
+<li class="chapter" data-level="G.2" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#example"><i class="fa fa-check"></i><b>G.2</b> Example</a>
+<ul>
+<li class="chapter" data-level="G.2.1" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#example-1"><i class="fa fa-check"></i><b>G.2.1</b> Example</a></li>
+</ul></li>
+<li class="chapter" data-level="G.3" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#GraphRshinyApp"><i class="fa fa-check"></i><b>G.3</b> GraphR Shiny App and tutorial website</a></li>
+<li class="chapter" data-level="G.4" data-path="ImplementGraphR.html"><a href="ImplementGraphR.html#checkmarks"><i class="fa fa-check"></i><b>G.4</b> Checkmarks</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Supplementary Materials for Probabilistic Graphical Modeling under Heterogeneity</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="ImplementGraphR" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">G</span> Implementation<a href="ImplementGraphR.html#ImplementGraphR" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The GraphR (Graphical Regression) is a flexible approach which incorporates sample heterogenity and enables covariate-dependent graphs. Our regression-based method provides a functional mapping from the covariate space to precision matrix for different types of heterogeneous graphical model settings. GraphR imposes sparsity in both edge and covariate selection and computationally efficient via use of variational Bayes algorithms. The method is versatile to incorporate different type of covariates such as <br>
+(I) <strong>binary</strong> (control and disease specific graphs), <br>
+(II) <strong>categorical</strong> (category specific graphs such as cancer subtypes), <br>
+(III) <strong>univariate continuous</strong> (time varying graphs for single cell data), <br>
+(IV) <strong>categorical + univariate continuous</strong> (graphs changing over category such as cancer sub-types and continuous scale as biomarkers), <br>
+(V) <strong>multivariate continuous</strong> (spatial transcriptomics co-expression networks). <br>
+More details about the method can found in the Methods Section of the manuscript and Section <a href="method.html#method">A</a> of the Supplementary Materials. GraphR is implemented as an open-source R package (Section <a href="ImplementGraphR.html#GraphRpackage">G.1</a>) and Shiny app (Section <a href="ImplementGraphR.html#GraphRshinyApp">G.3</a>).</p>
+<div id="GraphRpackage" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">G.1</span> GraphR package<a href="ImplementGraphR.html#GraphRpackage" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="installation" class="section level3 hasAnchor" number="7.1.1">
+<h3><span class="header-section-number">G.1.1</span> Installation<a href="ImplementGraphR.html#installation" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>You can install the released version of GraphR from (<a href="https://github.com/bayesrx/GraphR" class="uri">https://github.com/bayesrx/GraphR</a>) with:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="ImplementGraphR.html#cb1-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">&quot;bayesrx/GraphR&quot;</span>)</span>
+<span id="cb1-2"><a href="ImplementGraphR.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GraphR)</span></code></pre></div>
+</div>
+<div id="graphr_est-function" class="section level3 hasAnchor" number="7.1.2">
+<h3><span class="header-section-number">G.1.2</span> GraphR_est() function<a href="ImplementGraphR.html#graphr_est-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>GraphR_est()</strong> function can be used to estimate the graphical regression coefficients and inclusion probabilities of external covariates for the GraphR models. It is suggested to maintain <span class="math inline">\(n/pq &gt;1\)</span> and efficacy of the method increase with high values of <span class="math inline">\(n/pq\)</span> ratio. For priors, we assume <span class="math inline">\(\pi \sim Beta(a_\pi, b_\pi)\)</span> and <span class="math inline">\(\tau \sim \Gamma(a_\tau, b_\tau)\)</span>.</p>
+<p>The <strong>mandatory inputs</strong> of estimation function are given below.</p>
+<ul>
+<li><p><strong>Features (nodes)</strong>: Nodes of the graphs among which edges are built (e.g. a gene expression matrix of dimensions <span class="math inline">\(n \times p\)</span>). <strong>Please standardize features before plugging into the function or set standardize_feature = TRUE in the function</strong>.</p></li>
+<li><p><strong>Cont_external and dis_external (continuous and discrete external covariates)</strong>: An <span class="math inline">\(n \times q_1\)</span> and an <span class="math inline">\(n \times q_2\)</span> matrices of continuous and discrete external covariates respectively. <span class="math inline">\(q_1 + q_2 =q\)</span>. <strong>Please standardize continuous external covariates before plug into the estimation function or set standardize_external = TRUE in the function.</strong></p></li>
+</ul>
+<p>The <strong>optional inputs</strong> of estimation function are given below.</p>
+<ul>
+<li><p><strong><span class="math inline">\(\boldsymbol a_{\boldsymbol \pi}\)</span>, <span class="math inline">\(\boldsymbol b_{\boldsymbol \pi}\)</span></strong>: Hyper-parameters from <span class="math inline">\(\pi \sim Beta(a_\pi, b_\pi)\)</span>. By default <span class="math inline">\(a_\pi = 1, b_\pi = 4\)</span>.</p></li>
+<li><p><strong><span class="math inline">\(\boldsymbol a_{\boldsymbol \tau}\)</span>, <span class="math inline">\(\boldsymbol b_{\boldsymbol \tau}\)</span></strong>: Hyper-parameters from <span class="math inline">\(\tau \sim Gamma(a_\tau, b_\tau)\)</span>. By default <span class="math inline">\(a_\tau = 0.005, b_\tau = 0.005\)</span>.</p></li>
+<li><p><strong>Standardize_feature, standardize_external</strong>: Standardize features or continuous external covariates. Default as FALSE.</p></li>
+<li><p><strong>Max_iter</strong>: Maximum number of iterations. Default as 2,000.</p></li>
+<li><p><strong>Max_tol</strong>: Maximum tolerance. Default as 0.001.</p></li>
+</ul>
+<p><strong>Outputs</strong> of the <strong>GraphR_est()</strong> function are provided below.</p>
+<ul>
+<li><p><strong>Beta (the graphical regression coefficients)</strong>: A <span class="math inline">\(p \times p \times q\)</span> array of coefficients for external covariates. The <span class="math inline">\([i,j,k]\)</span> element represents the effect of k-th external covariates on regression of j-th node on i-th node.</p></li>
+<li><p><strong>Phi (posterior inclusion probability)</strong>: A <span class="math inline">\(p \times p \times q\)</span> array storing posterior inclusion probability (PIP) of external covariates. The <span class="math inline">\([i,j,k]\)</span> elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.</p></li>
+<li><p><strong>Omega_diag (diagonal elements of precision matrix)</strong>: A p vector with i-th element representing the inverse variance of error.</p></li>
+</ul>
+</div>
+<div id="graphr_pred-function" class="section level3 hasAnchor" number="7.1.3">
+<h3><span class="header-section-number">G.1.3</span> GraphR_pred() function<a href="ImplementGraphR.html#graphr_pred-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>GraphR_pred()</strong> function can be used to predict partial correlation between two nodes and the corresponding inclusion probabilities from the results of GraphR model alongwith Bayesian FDR-adjusted p-values.</p>
+<p>The <strong>mandatory inputs</strong> of prediction function are given below.</p>
+<ul>
+<li><strong>New_df</strong>: A matrix of new external covariates based on which predictions are made. <strong>Note: Please ensure that the order and scale of new external covariates are same as those used in the estimation.</strong></li>
+</ul>
+<p>The <strong>optional inputs</strong> of prediction function are given below.</p>
+<ul>
+<li><p><strong>GraphR_est_res</strong>: Results from <code>GraphR_est</code> function. If graphR_est_res = NULL, then the following three inputs: (1) beta; (2) phi; (3) omega_diag are needed.</p></li>
+<li><p><strong>Beta</strong>: A <span class="math inline">\(p \times p \times q\)</span> array storing coefficients of external covariates. The <span class="math inline">\([i,j,k]\)</span> elements represents the effect of k-th external covariates on regression of j-th node on i-th node.</p></li>
+<li><p><strong>Omega_diag</strong>: A p vector with i-th element representing the inverse variance of error.</p></li>
+<li><p><strong>Pip</strong>: A <span class="math inline">\(p \times p \times q\)</span> array storing posterior inclusion probability (PIP) of external covariates. The <span class="math inline">\([i,j,k]\)</span> elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.</p></li>
+</ul>
+<p>The <strong>output</strong> contains following information.</p>
+<ul>
+<li><p><strong>Feature_id1</strong>, <strong>feature_id2</strong>: Indices of features or nodes.</p></li>
+<li><p><strong>Pr_inclusion</strong>: Posterior inclusion probability of connections between two nodes based on “And” rules.</p></li>
+<li><p><strong>Correlation</strong>: Partial correlation between two nodes. Values with maximum magnitudes are provided.</p></li>
+<li><p><strong>FDR_p</strong>: Bayesian FDR-adjusted p values.</p></li>
+</ul>
+</div>
+<div id="graphr_visualization-function" class="section level3 hasAnchor" number="7.1.4">
+<h3><span class="header-section-number">G.1.4</span> GraphR_visualization() function<a href="ImplementGraphR.html#graphr_visualization-function" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The <strong>GraphR_visualization()</strong> function provides a circular network based on
+a given new external covariates vector and thresholds for FDR-p values and magnitudes of partial correlations.</p>
+<p>The <strong>mandatory inputs</strong> of prediction function are given below.</p>
+<ul>
+<li><strong>New_vec</strong>: A vector of new external covariates based on which plot is made. <strong>Note: Please ensure that the order and scale of new external covariates are same as those used in the estimation.</strong></li>
+</ul>
+<p>The <strong>optional inputs</strong> of prediction function are given below.</p>
+<ul>
+<li><p><strong>GraphR_est_res</strong>: Results from <code>GraphR_est</code> function. If graphR_est_res = NULL, then the following three inputs: (1) beta; (2) phi; (3) omega_diag are needed.</p></li>
+<li><p><strong>Beta</strong>: A <span class="math inline">\(p \times p \times q\)</span> array storing coefficients of external covariates. The <span class="math inline">\([i,j,k]\)</span> elements represents the effect of k-th external covariates on regression of j-th node on i-th node.</p></li>
+<li><p><strong>Omega_diag</strong>: A p vector with i-th element representing the inverse variance of error.</p></li>
+<li><p><strong>Pip</strong>: A <span class="math inline">\(p \times p \times q\)</span> array storing posterior inclusion probability (PIP) of external covariates. The <span class="math inline">\([i,j,k]\)</span> elements represents the PIP of k-th external covariates on regression of j-th node on i-th node.</p></li>
+<li><p><strong>Fdr_thre</strong>: A numeric value. Threshold for Bayesian FDR adjusted q-values.</p></li>
+<li><p><strong>Magnitude_thre</strong>: A numeric value. Threshold for the magnitude of partial correlations.</p></li>
+</ul>
+<p>The <strong>output</strong> provides a circular network plot. Node sizes represent connectivity degrees
+of the corresponding features while edge widths are proportional to the partial
+correlation between two features. Sign of the partial correlations are represented
+by the color</p>
+</div>
+</div>
+<div id="example" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">G.2</span> Example<a href="ImplementGraphR.html#example" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>An example code with one of the existing datasets to demonstrate how to run the functions and obtain inference.</p>
+<div id="example-1" class="section level3 hasAnchor" number="7.2.1">
+<h3><span class="header-section-number">G.2.1</span> Example<a href="ImplementGraphR.html#example-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Here we provide an example to run the GraphR method with application to PAM50 protiomics data.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="ImplementGraphR.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">100</span>)</span>
+<span id="cb2-2"><a href="ImplementGraphR.html#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GraphR)</span></code></pre></div>
+<pre><code>## Warning: replacing previous import &#39;dplyr::union&#39; by &#39;igraph::union&#39; when
+## loading &#39;GraphR&#39;</code></pre>
+<pre><code>## Warning: replacing previous import &#39;dplyr::as_data_frame&#39; by
+## &#39;igraph::as_data_frame&#39; when loading &#39;GraphR&#39;</code></pre>
+<pre><code>## Warning: replacing previous import &#39;dplyr::groups&#39; by &#39;igraph::groups&#39; when
+## loading &#39;GraphR&#39;</code></pre>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="ImplementGraphR.html#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;Pam50&quot;</span>)</span>
+<span id="cb6-2"><a href="ImplementGraphR.html#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="ImplementGraphR.html#cb6-3" aria-hidden="true" tabindex="-1"></a>features <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">apply</span>(Pam50<span class="sc">$</span>features,<span class="dv">2</span>,scale)) </span>
+<span id="cb6-4"><a href="ImplementGraphR.html#cb6-4" aria-hidden="true" tabindex="-1"></a>features[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)]</span></code></pre></div>
+<pre><code>##      X1433EPSILON     X4EBP1 X4EBP1_pS65 X4EBP1_pT37T46    X53BP1
+## [1,]   -0.9298711 -1.0325344  -0.1814837      0.3870419 -1.125110
+## [2,]   -1.2265417 -0.8121828  -0.9249897     -0.4834352  1.084052
+## [3,]   -0.9250730 -0.1882466   0.8258123     -0.4022269  0.289943
+## [4,]   -0.6566337 -0.2473042   0.2114522      0.9897723  2.134105
+## [5,]   -0.9476849  1.7654120   2.7128204      2.1739453  1.378139</code></pre>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="ImplementGraphR.html#cb8-1" aria-hidden="true" tabindex="-1"></a>external <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(Pam50<span class="sc">$</span>external)</span>
+<span id="cb8-2"><a href="ImplementGraphR.html#cb8-2" aria-hidden="true" tabindex="-1"></a>external[<span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),]</span></code></pre></div>
+<pre><code>##      basal_like her2_enriched luminal_ab
+## [1,]          0             1          0
+## [2,]          0             0          1
+## [3,]          0             0          1
+## [4,]          0             0          1
+## [5,]          0             0          1</code></pre>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="ImplementGraphR.html#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(res <span class="ot">&lt;-</span> <span class="fu">GraphR_est</span>(</span>
+<span id="cb10-2"><a href="ImplementGraphR.html#cb10-2" aria-hidden="true" tabindex="-1"></a>  features,</span>
+<span id="cb10-3"><a href="ImplementGraphR.html#cb10-3" aria-hidden="true" tabindex="-1"></a>  external,</span>
+<span id="cb10-4"><a href="ImplementGraphR.html#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">a_pi =</span> <span class="dv">1</span>,</span>
+<span id="cb10-5"><a href="ImplementGraphR.html#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">b_pi =</span> <span class="dv">4</span>,</span>
+<span id="cb10-6"><a href="ImplementGraphR.html#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">a_tau =</span> <span class="fl">0.005</span>,</span>
+<span id="cb10-7"><a href="ImplementGraphR.html#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">b_tau =</span> <span class="fl">0.005</span>,</span>
+<span id="cb10-8"><a href="ImplementGraphR.html#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_iter =</span> <span class="dv">2000</span>,</span>
+<span id="cb10-9"><a href="ImplementGraphR.html#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">max_tol =</span> <span class="fl">0.001</span></span>
+<span id="cb10-10"><a href="ImplementGraphR.html#cb10-10" aria-hidden="true" tabindex="-1"></a>))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+## 110.852   9.912 121.039</code></pre>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="ImplementGraphR.html#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### prediction</span></span>
+<span id="cb12-2"><a href="ImplementGraphR.html#cb12-2" aria-hidden="true" tabindex="-1"></a>new_df <span class="ot">&lt;-</span> <span class="fu">diag</span>(<span class="dv">3</span>)</span>
+<span id="cb12-3"><a href="ImplementGraphR.html#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(new_df) <span class="ot">&lt;-</span> <span class="fu">colnames</span>(external)</span>
+<span id="cb12-4"><a href="ImplementGraphR.html#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="ImplementGraphR.html#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">system.time</span>(pred <span class="ot">&lt;-</span> <span class="fu">GraphR_pred</span>(new_df, res))</span></code></pre></div>
+<pre><code>##    user  system elapsed 
+##   2.984   0.025   3.013</code></pre>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="ImplementGraphR.html#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pred)</span></code></pre></div>
+<pre><code>##   basal_like her2_enriched luminal_ab     feature1       feature2 Pr_inclusion
+## 1          1             0          0     PKCALPHA PKCALPHA_pS657            1
+## 2          1             0          0      ERALPHA             PR            1
+## 3          1             0          0 S6_pS235S236   S6_pS240S244            1
+## 4          1             0          0          BID       STATHMIN            1
+## 5          1             0          0          YAP      YAP_pS127            1
+## 6          1             0          0        RAD51    X4EBP1_pT70            1
+##   Correlation FDR_p
+## 1   0.7938597     0
+## 2   0.4530799     0
+## 3   0.8136693     0
+## 4   0.4157183     0
+## 5   0.7698744     0
+## 6   0.3773436     0</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="ImplementGraphR.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="do">####### visualization</span></span>
+<span id="cb16-2"><a href="ImplementGraphR.html#cb16-2" aria-hidden="true" tabindex="-1"></a>new_vec <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">0</span>,<span class="dv">0</span>)</span>
+<span id="cb16-3"><a href="ImplementGraphR.html#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="fu">GraphR_visualization</span>(new_vec, <span class="at">graphR_est_res =</span> res,</span>
+<span id="cb16-4"><a href="ImplementGraphR.html#cb16-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">fdr_thre =</span> <span class="fl">0.01</span>, <span class="at">magnitude_thre =</span> <span class="fl">0.4</span>)</span></code></pre></div>
+<pre><code>## Joining with `by = join_by(feature)`</code></pre>
+<p><img src="_main_files/figure-html/unnamed-chunk-4-1.png" width="2100" /></p>
+</div>
+</div>
+<div id="GraphRshinyApp" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">G.3</span> GraphR Shiny App and tutorial website<a href="ImplementGraphR.html#GraphRshinyApp" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The Shiny App and tutorial website of GraphR can be found <a href="https://bayesrx.shinyapps.io/GraphR/">here</a>.</p>
+<!-- Insert the link once it's ready. -->
+<!-- ## Tutorial website {#website} -->
+<!-- More details about implementation of the GraphR can be found at this [website]().  -->
+<!-- Insert the link once it's ready. -->
+</div>
+<div id="checkmarks" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">G.4</span> Checkmarks<a href="ImplementGraphR.html#checkmarks" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Here are a few checkmarks to follow while using the GraphR method.</p>
+<ul>
+<li><p><strong>Please make sure to standardize continuous external covariates before plug into the estimation function.</strong></p></li>
+<li><p><strong>It is suggested to maintain <span class="math inline">\(n/pq &gt;1\)</span> and efficacy of the method increase with high values of <span class="math inline">\(n/pq\)</span> ratio.</strong></p></li>
+</ul>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="ST.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/USERNAME/REPO/edit/BRANCH/07-Implementation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
